@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Mahanadi Parisara</title>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="../css/main.css" as="style">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(18, 24, 32, 0.7);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition-standard);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 212, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--color-accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--color-accent-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-progress {
+            background: rgba(0, 0, 0, 0.3);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(
+                to right, 
+                var(--color-accent-primary), 
+                var(--color-accent-secondary)
+            );
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-logo">MP</div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="clients.html" class="nav-link">Clients</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="cyber-container">
+        <h1 class="hero-title">My Digital Marketing Skills</h1>
+
+        <section class="skills-container">
+            <div class="skill-card">
+                <div class="skill-icon">📊</div>
+                <h3 class="skill-title">Google Ads & Conversion Tracking</h3>
+                <p>End-to-end setup with measurable results and precision tracking</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" style="width: 89%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📈</div>
+                <h3 class="skill-title">Google Analytics 4 (GA4)</h3>
+                <p>Comprehensive user behavior insights and data interpretation</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🏷️</div>
+                <h3 class="skill-title">Google Tag Manager</h3>
+                <p>Custom tag implementation and event tracking without code deployment</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" style="width: 80%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">📱</div>
+                <h3 class="skill-title">Flutter & Local Storage</h3>
+                <p>Built cross-platform apps with persistent local data using SQLite and Hive</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" style="width: 85%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🧩</div>
+                <h3 class="skill-title">Google Sign-In & Sheets</h3>
+                <p>Integrated auth & two-way sync using Firebase Console, Google Cloud Console, and Sheets API</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" style="width: 87%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3 class="skill-title">AI Tools & Integration</h3>
+                <p>Proficient with ChatGPT, Gemini, Claude & more for debugging, prototyping, and research</p>
+                <div class="skill-progress">
+                    <div class="progress-bar" style="width: 80%"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Background Effects -->
+    <div id="background-layer"></div>
+    <div id="particles-js" class="particle-background"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

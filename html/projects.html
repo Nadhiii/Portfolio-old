@@ -1,0 +1,159 @@
+
+
+    <!-- Background Effects -->
+    <div id="background-layer"></div>
+    <div id="particles-js" class="particle-background"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Mahanadi Parisara</title>
+
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="../css/main.css" as="style">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .project-details {
+            background: rgba(18, 24, 32, 0.7);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-details:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 212, 0.2);
+        }
+
+        .project-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--color-accent-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            color: var(--color-text-secondary);
+        }
+
+        .project-description, 
+        .project-challenges {
+            margin-bottom: 1rem;
+            color: var(--color-text-primary);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(0, 255, 212, 0.1);
+            color: var(--color-accent-primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-logo">MP</div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="clients.html" class="nav-link">Clients</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="cyber-container">
+        <h1 class="hero-title"> Projects </h1>
+
+        <section class="projects-grid">
+            <div class="project-details">
+                <h3 class="project-name">Finance Manager App</h3>
+                
+                <div class="project-meta">
+                    <span><strong>Status:</strong> In Progress</span>
+                    <span><strong>Duration:</strong> 2 Months</span>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">Flutter</span>
+                    <span class="tech-tag">Dart</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">Hive</span>
+                    <span class="tech-tag">Google Sheets API</span>
+                </div>
+
+                <p class="project-description">
+                    <strong>Description:</strong> A personal finance tracker app designed for multi-device use with a privacy-first approach. The app enables manual data entry, two-way sync with Google Sheets, and provides debt payoff suggestions using Avalanche and Snowball methods.
+                </p>
+
+                <p class="project-challenges">
+                    <strong>Technical Challenges:</strong> Implemented complex sync logic, resolved Google Sign-In integration issues, optimized app performance, and developed a robust data model to prevent conflicts.
+                </p>
+            </div>
+
+            <!-- You can add more projects here following the same structure -->
+            <div class="project-details">
+                <h3 class="project-name"> Automation </h3>
+                
+                <div class="project-meta">
+                    <span><strong>Status:</strong> Implemented</span>
+                    <span><strong>Duration:</strong> 1.5 Months</span>
+                </div>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">Google Sheets</span>
+                    <span class="tech-tag">Google Apps Script</span>
+                    <span class="tech-tag">Automation</span>
+                    <span class="tech-tag">Data Integration</span>
+                </div>
+
+                <p class="project-description">
+                    <strong>Description:</strong> Developed a comprehensive automated reporting solution that revolutionized team performance tracking at Cognizant. The project eliminated manual data compilation processes that had been in place for years, significantly reducing administrative overhead and improving data accuracy.
+                </p>
+
+                <p class="project-challenges">
+                    <strong>Key Achievements:</strong> </br>
+                    -Collaborated cross-functionally to implement scalable data extraction and automated reporting.</br>
+                    -Cut manual data processing time by ~90%.</br>
+                    -Scripted automatic population of required data spreadsheets.</br>
+                    -Enhanced data consistency and reliability, removing manual errors.</br>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Background Effects -->
+    <div id="background-layer"></div>
+    <div id="particles-js" class="particle-background"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

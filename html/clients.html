@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients | Mahanadi Parisara</title>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="../css/main.css" as="style">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .client-card {
+            background: rgba(18, 24, 32, 0.7);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition-standard);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .client-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 212, 0.2);
+        }
+
+        .client-logo {
+            max-width: 200px;
+            max-height: 150px;
+            margin: 0 auto 1rem;
+            object-fit: contain;
+        }
+
+        .client-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--color-accent-primary);
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-logo">MP</div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="clients.html" class="nav-link">Clients</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="cyber-container">
+        <h1 class="hero-title">Clients</h1>
+        
+        <section class="clients-grid">
+            <div class="client-card">
+                <img src="../assets/prestige.png" alt="Prestige Estates Projects" class="client-logo">
+                <h3 class="client-name">Prestige Estates</h3>
+                <p>Real Estate Marketing Solutions</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/berkeley.png" alt="EMERITUS Institute" class="client-logo">
+                <h3 class="client-name">EMERITUS</h3>
+                <p>Education Marketing Strategy</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/cigna.png" alt="Cigna" class="client-logo">
+                <h3 class="client-name">Cigna</h3>
+                <p>Healthcare Marketing Optimization</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/Otrium.jpeg" alt="Otrium" class="client-logo">
+                <h3 class="client-name">Otrium</h3>
+                <p>E-commerce Marketing Solutions</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/aditya.png" alt="Aditya Birla Capital" class="client-logo">
+                <h3 class="client-name">Aditya Birla Capital</h3>
+                <p>Financial Services Marketing</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/ICICI.jpeg" alt="ICICI Lombard" class="client-logo">
+                <h3 class="client-name">ICICI Lombard</h3>
+                <p>Insurance Marketing Strategy</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/royal-canin.png" alt="Royal Canin" class="client-logo">
+                <h3 class="client-name">Royal Canin</h3>
+                <p>Pet Care Marketing Solutions</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/fpt.svg" alt="FPT Education" class="client-logo">
+                <h3 class="client-name">FPT Education</h3>
+                <p>Education Technology Marketing</p>
+            </div>
+
+            <div class="client-card">
+                <img src="../assets/lodha.png" alt="Lodha Group" class="client-logo">
+                <h3 class="client-name">Lodha Group</h3>
+                <p>Real Estate Digital Marketing</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Background Effects -->
+    <div id="background-layer"></div>
+    <div id="particles-js" class="particle-background"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>

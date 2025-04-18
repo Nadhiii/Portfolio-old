@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Mahanadi Parisara</title>
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="../css/main.css" as="style">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            background: rgba(18, 24, 32, 0.7);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .contact-form {
+            background: rgba(18, 24, 32, 0.7);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            background: rgba(12, 20, 30, 0.5);
+            border: 1px solid var(--color-border);
+            color: var(--color-text-primary);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(
+                to right, 
+                var(--color-accent-primary), 
+                var(--color-accent-secondary)
+            );
+            color: var(--color-bg-primary);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-standard);
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-icon {
+            margin-right: 1rem;
+            color: var(--color-accent-primary);
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="cyber-nav">
+        <div class="nav-logo">MP</div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="clients.html" class="nav-link">Clients</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="cyber-container">
+        <h1 class="hero-title">Connect with Me</h1>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">📧</span>
+                    <span>mahanadhip@gmail.com</span>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">📱</span>
+                    <span>+91 636 314 9672</span>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">🌐</span>
+                    <span>Bengaluru, Karnataka, India</span>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-info-icon">💼</span>
+                    <span>Digital Marketing Specialist</span>
+                </div>
+            </div>
+
+            <form class="contact-form" action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Background Effects -->
+    <div id="background-layer"></div>
+    <div id="particles-js" class="particle-background"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
