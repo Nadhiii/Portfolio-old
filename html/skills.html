@@ -62,12 +62,24 @@
                 var(--color-accent-secondary)
             );
         }
+
+        .nav-logo a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: var(--transition-standard);
+            font-family: 'Orbitron', sans-serif; /* Matching the hero title font */
+        }
+        
+        .nav-logo a:hover {
+            color: var(--color-accent-primary);
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="cyber-nav">
-        <div class="nav-logo">MP</div>
+        <div class="nav-logo"><a href="/index.html">MP</a></div>
         <ul class="nav-menu">
             <li><a href="/index.html" class="nav-link">Home</a></li>
             <li><a href="skills.html" class="nav-link">Skills</a></li>

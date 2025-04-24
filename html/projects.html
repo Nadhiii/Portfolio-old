@@ -72,12 +72,24 @@
             border-radius: 5px;
             font-size: 0.8rem;
         }
+
+        .nav-logo a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: var(--transition-standard);
+            font-family: 'Orbitron', sans-serif; /* Matching the hero title font */
+        }
+        
+        .nav-logo a:hover {
+            color: var(--color-accent-primary);
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="cyber-nav">
-        <div class="nav-logo">MP</div>
+        <div class="nav-logo"><a href="/index.html">MP</a></div>
         <ul class="nav-menu">
             <li><a href="/index.html" class="nav-link">Home</a></li>
             <li><a href="skills.html" class="nav-link">Skills</a></li>
@@ -96,8 +108,8 @@
                 <h3 class="project-name">Finance Manager App</h3>
                 
                 <div class="project-meta">
-                    <span><strong>Status:</strong> In Progress</span>
-                    <span><strong>Duration:</strong> 2 Months</span>
+                    <span><strong>Status:</strong> Completed</span>
+                    <span><strong>Duration:</strong> 3 Months</span>
                 </div>
 
                 <div class="tech-stack">
@@ -115,6 +127,21 @@
                 <p class="project-challenges">
                     <strong>Technical Challenges:</strong> Implemented complex sync logic, resolved Google Sign-In integration issues, optimized app performance, and developed a robust data model to prevent conflicts.
                 </p>
+
+                    <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="finance_manager.html" style="
+            background: rgba(0, 255, 212, 0.2);
+            color: var(--color-accent-primary);
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            font-family: 'Orbitron', sans-serif;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        ">Learn More</a>
+    </div>
+</div>
             </div>
 
             <!-- You can add more projects here following the same structure -->

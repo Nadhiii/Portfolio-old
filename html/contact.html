@@ -74,6 +74,29 @@
             color: var(--color-accent-primary);
             font-size: 1.5rem;
         }
+        
+        .contact-info-item a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: var(--transition-standard);
+        }
+        
+        .contact-info-item a:hover {
+            color: var(--color-accent-primary);
+            text-decoration: none;
+        }
+        
+        .nav-logo a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: var(--transition-standard);
+            font-family: 'Orbitron', sans-serif; /* Matching the hero title font */
+        }
+        
+        .nav-logo a:hover {
+            color: var(--color-accent-primary);
+            text-decoration: none;
+        }
 
         @media (max-width: 768px) {
             .contact-container {
@@ -85,7 +108,7 @@
 <body>
     <!-- Navigation -->
     <nav class="cyber-nav">
-        <div class="nav-logo">MP</div>
+        <div class="nav-logo"><a href="/index.html">MP</a></div>
         <ul class="nav-menu">
             <li><a href="/index.html" class="nav-link">Home</a></li>
             <li><a href="skills.html" class="nav-link">Skills</a></li>
@@ -104,11 +127,11 @@
                 <h2 class="section-title">Contact Information</h2>
                 <div class="contact-info-item">
                     <span class="contact-info-icon">📧</span>
-                    <span>mahanadhip@gmail.com</span>
+                    <span><a href="mailto:mahanadhip@gmail.com">mahanadhip@gmail.com</a></span>
                 </div>
                 <div class="contact-info-item">
                     <span class="contact-info-icon">📱</span>
-                    <span>+91 636 314 9672</span>
+                    <span><a href="tel:+916363149672">+91 636 314 9672</a></span>
                 </div>
                 <div class="contact-info-item">
                     <span class="contact-info-icon">🌐</span>
