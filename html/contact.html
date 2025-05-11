@@ -58,11 +58,26 @@
             border-radius: 5px;
         }
         
+.contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Equal width columns */
+        gap: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.8s ease forwards 0.3s;
+    }
+    
+    /* Status message takes full width */
+    #form-status {
+        grid-column: 1 / -1; /* Span all columns */
+    }
+    
+    /* Responsive adjustment */
+    @media (max-width: 768px) {
         .contact-container {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards 0.3s;
+            grid-template-columns: 1fr; /* Stack on mobile */
         }
+    }
         
         @keyframes fadeInUp {
             to {
