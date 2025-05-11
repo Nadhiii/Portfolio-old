@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Mahanadi Parisara</title>
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-THQZH8J7');</script>
+    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-THQZH8J7');</script>
     <!-- End Google Tag Manager -->
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="../css/main.css" as="style">
+    <link rel="preload" href="/css/main.css" as="style">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap"
+        rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/main.css">
@@ -23,7 +26,7 @@
             margin-bottom: 3rem;
             position: relative;
         }
-        
+
         .page-title {
             display: inline-block;
             position: relative;
@@ -35,7 +38,7 @@
             padding: 0.5rem 2rem;
             margin-bottom: 1rem;
         }
-        
+
         .page-title:before {
             content: '';
             position: absolute;
@@ -48,26 +51,26 @@
             z-index: -1;
             border-radius: 5px;
         }
-        
+
         .projects-grid {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease forwards 0.3s;
         }
-        
+
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .project-details {
             position: relative;
             overflow: hidden;
             transform-style: preserve-3d;
         }
-        
+
         .project-details:after {
             content: '';
             position: absolute;
@@ -80,11 +83,11 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-        
+
         .project-details:hover:after {
             opacity: 1;
         }
-        
+
         .learn-more-btn {
             background: rgba(255, 49, 49, 0.2);
             color: var(--color-accent-primary);
@@ -98,13 +101,13 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .learn-more-btn:hover {
             background: rgba(255, 49, 49, 0.3);
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(255, 49, 49, 0.3);
         }
-        
+
         .learn-more-btn:after {
             content: '';
             position: absolute;
@@ -115,11 +118,11 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: all 0.6s ease;
         }
-        
+
         .learn-more-btn:hover:after {
             left: 100%;
         }
-        
+
         .sound-effect-wrapper {
             position: absolute;
             top: -30px;
@@ -129,25 +132,28 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Comic Dots Overlay -->
     <div class="comic-dots"></div>
-    
+
     <!-- Navigation -->
     <nav class="spider-nav">
-        <div class="nav-logo"><a href="/index.html">MP</a></div>
+        <div class="nav-logo"><a href="/">MP</a></div>
         <ul class="nav-menu">
-            <li><a href="/index.html" class="nav-link">Home</a></li>
-            <li><a href="skills.html" class="nav-link">Skills</a></li>
-            <li><a href="clients.html" class="nav-link">Clients</a></li>
-            <li><a href="projects.html" class="nav-link">Projects</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/html/skills" class="nav-link">Skills</a></li>
+            <li><a href="/html/clients" class="nav-link">Clients</a></li>
+            <li><a href="/html/projects" class="nav-link">Projects</a></li>
+            <li><a href="/html/contact" class="nav-link">Contact</a></li>
         </ul>
     </nav>
+
 
     <!-- Main Content -->
     <main class="spider-container" role="main">
@@ -162,7 +168,7 @@
             <div class="project-details">
                 <h3 class="project-name">Pluto</h3>
                 <h5>(Previously known as Finance Manager)</h5>
-                
+
                 <div class="project-meta">
                     <span><strong>Status:</strong> Completed</span>
                     <span><strong>Duration:</strong> 3 Months</span>
@@ -177,22 +183,26 @@
                 </div>
 
                 <p class="project-description">
-                    <strong>Description:</strong> A personal finance tracker app designed for multi-device use with a privacy-first approach. The app enables manual data entry, two-way sync with Google Sheets, and provides debt payoff suggestions using Avalanche and Snowball methods.
+                    <strong>Description:</strong> A personal finance tracker app designed for multi-device use with a
+                    privacy-first approach. The app enables manual data entry, two-way sync with Google Sheets, and
+                    provides debt payoff suggestions using Avalanche and Snowball methods.
                 </p>
 
                 <p class="project-challenges">
-                    <strong>Technical Challenges:</strong> Implemented complex sync logic, resolved Google Sign-In integration issues, optimized app performance, and developed a robust data model to prevent conflicts.
+                    <strong>Technical Challenges:</strong> Implemented complex sync logic, resolved Google Sign-In
+                    integration issues, optimized app performance, and developed a robust data model to prevent
+                    conflicts.
                 </p>
 
                 <div style="text-align: center; margin-top: 1.5rem;">
-                    <a href="pluto.html" class="learn-more-btn">Learn More</a>
+                    <a href="/html/pluto" class="learn-more-btn">Learn More</a>
                 </div>
             </div>
 
             <!-- You can add more projects here following the same structure -->
             <div class="project-details">
                 <h3 class="project-name">Automation</h3>
-                
+
                 <div class="project-meta">
                     <span><strong>Status:</strong> Implemented</span>
                     <span><strong>Duration:</strong> 1.5 Months</span>
@@ -206,7 +216,10 @@
                 </div>
 
                 <p class="project-description">
-                    <strong>Description:</strong> Developed a comprehensive automated reporting solution that revolutionized team performance tracking at Cognizant. The project eliminated manual data compilation processes that had been in place for years, significantly reducing administrative overhead and improving data accuracy.
+                    <strong>Description:</strong> Developed a comprehensive automated reporting solution that
+                    revolutionized team performance tracking at Cognizant. The project eliminated manual data
+                    compilation processes that had been in place for years, significantly reducing administrative
+                    overhead and improving data accuracy.
                 </p>
 
                 <p class="project-challenges">
@@ -226,70 +239,70 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="../js/main.js"></script>
-    
+    <script src="/js/main.js"></script>
+
     <script>
         // Add staggered animation to project cards
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const projects = document.querySelectorAll('.project-details');
-            
+
             projects.forEach((project, index) => {
                 // Set initial state
                 project.style.opacity = '0';
                 project.style.transform = 'translateY(30px)';
-                
+
                 // Animate in with staggered delay
                 setTimeout(() => {
                     project.style.transition = 'all 0.7s cubic-bezier(0.19, 1, 0.22, 1)';
                     project.style.opacity = '1';
                     project.style.transform = 'translateY(0)';
                 }, 200 * index);
-                
+
                 // Animate tech stack tags
                 const techTags = project.querySelectorAll('.tech-tag');
                 techTags.forEach((tag, tagIndex) => {
                     tag.style.opacity = '0';
                     tag.style.transform = 'translateY(10px)';
-                    
+
                     setTimeout(() => {
                         tag.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
                         tag.style.opacity = '1';
                         tag.style.transform = 'translateY(0)';
                     }, 500 + (100 * tagIndex));
                 });
-                
+
                 // Add parallax effect on hover
                 project.addEventListener('mousemove', (e) => {
                     const rect = project.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
+
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    
+
                     const offsetX = (x - centerX) / 30;
                     const offsetY = (y - centerY) / 30;
-                    
+
                     project.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
-                    
+
                     // Move project name for additional effect
                     const projectName = project.querySelector('.project-name');
                     if (projectName) {
                         projectName.style.transform = `translate3d(${offsetX * 1.5}px, ${offsetY * 1.5}px, 20px)`;
                     }
                 });
-                
+
                 // Reset on mouse leave
                 project.addEventListener('mouseleave', () => {
                     project.style.transform = 'translate3d(0, 0, 0)';
-                    
+
                     const projectName = project.querySelector('.project-name');
                     if (projectName) {
                         projectName.style.transform = 'translate3d(0, 0, 0)';
                     }
                 });
             });
-            
+
             // Animate sound effect
             const soundEffect = document.querySelector('.sound-effect');
             if (soundEffect) {
@@ -303,4 +316,5 @@
         });
     </script>
 </body>
+
 </html>
