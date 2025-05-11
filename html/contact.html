@@ -5,109 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Mahanadi Parisara</title>
     
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-THQZH8J7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Replace with your actual EmailJS user ID
+            emailjs.init("iOjr3dwBPBnhBOiGn");
+        })();
+    </script>
+    
     <!-- Preload Critical Assets -->
     <link rel="preload" href="../css/main.css" as="style">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/main.css">
     <style>
+        .page-title-wrapper {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .page-title {
+            display: inline-block;
+            position: relative;
+            font-family: 'Comic Neue', 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            text-shadow: 3px 3px 0 var(--color-accent-primary), -3px -3px 0 var(--color-accent-secondary);
+            padding: 0.5rem 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-title:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            transform: skewX(-15deg);
+            z-index: -1;
+            border-radius: 5px;
+        }
+        
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .contact-info {
-            background: rgba(18, 24, 32, 0.7);
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            padding: 2rem;
-        }
-
-        .contact-form {
-            background: rgba(18, 24, 32, 0.7);
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            padding: 2rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            background: rgba(12, 20, 30, 0.5);
-            border: 1px solid var(--color-border);
-            color: var(--color-text-primary);
-        }
-
-        .contact-form button {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(
-                to right, 
-                var(--color-accent-primary), 
-                var(--color-accent-secondary)
-            );
-            color: var(--color-bg-primary);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition-standard);
-        }
-
-        .contact-form button:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info-icon {
-            margin-right: 1rem;
-            color: var(--color-accent-primary);
-            font-size: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.3s;
         }
         
-        .contact-info-item a {
-            color: var(--color-text-primary);
-            text-decoration: none;
-            transition: var(--transition-standard);
-        }
-        
-        .contact-info-item a:hover {
-            color: var(--color-accent-primary);
-            text-decoration: none;
-        }
-        
-        .nav-logo a {
-            color: var(--color-text-primary);
-            text-decoration: none;
-            transition: var(--transition-standard);
-            font-family: 'Orbitron', sans-serif; /* Matching the hero title font */
-        }
-        
-        .nav-logo a:hover {
-            color: var(--color-accent-primary);
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .contact-container {
-                grid-template-columns: 1fr;
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
+        
+        .contact-speech-bubble {
+            position: relative;
+            background: rgba(255, 49, 49, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 2px solid var(--color-accent-primary);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-speech-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color: var(--color-accent-primary);
+        }
+        
+        .web-strand {
+            position: absolute;
+            width: 3px;
+            background-image: linear-gradient(to bottom, var(--color-accent-primary), transparent);
+            transform-origin: top;
+            z-index: -1;
+        }
+        
+        .sound-effect-wrapper {
+            position: absolute;
+            top: -30px;
+            right: 20%;
+            transform: rotate(10deg);
+            z-index: 2;
+        }
+        
+        @keyframes successPop {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            70% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+        }
+        
+        .form-status {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .form-status.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+            border: 1px solid #4caf50;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .form-status.error {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+            border: 1px solid #f44336;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-form label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Comic Dots Overlay -->
+    <div class="comic-dots"></div>
+    
     <!-- Navigation -->
-    <nav class="cyber-nav">
+    <nav class="spider-nav">
         <div class="nav-logo"><a href="/index.html">MP</a></div>
         <ul class="nav-menu">
             <li><a href="/index.html" class="nav-link">Home</a></li>
@@ -119,10 +181,22 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="cyber-container">
-        <h1 class="hero-title">Connect with Me</h1>
+    <main class="spider-container" role="main">
+        <div class="page-title-wrapper">
+            <div class="sound-effect-wrapper" aria-hidden="true">
+                <span class="sound-effect">HELLO!</span>
+            </div>
+            <h1 class="page-title">Connect with Me</h1>
+        </div>
+        
+        <div class="contact-speech-bubble">
+            With great power comes great responsibility... and also a great conversation. Drop me a message and let's connect!
+        </div>
         
         <div class="contact-container">
+            <!-- Status Messages Container -->
+            <div id="form-status" class="form-status" aria-live="polite" role="status"></div>       
+                 
             <div class="contact-info">
                 <h2 class="section-title">Contact Information</h2>
                 <div class="contact-info-item">
@@ -143,13 +217,35 @@
                 </div>
             </div>
 
-            <form class="contact-form" action="#" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="subject" placeholder="Subject" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <form class="contact-form" id="contact-form">
+                <label for="name" id="name-label">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                
+                <label for="email" id="email-label">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                
+                <label for="subject" id="subject-label">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                
+                <label for="message" id="message-label">Your Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                
                 <button type="submit">Send Message</button>
             </form>
+
+            <style>
+                .contact-form label {
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    padding: 0;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip: rect(0, 0, 0, 0);
+                    white-space: nowrap;
+                    border-width: 0;
+                }
+            </style>
         </div>
     </main>
 
@@ -160,5 +256,188 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="../js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create web strands as design elements
+            function createWebStrands() {
+                const container = document.querySelector('.spider-container');
+                const numberOfStrands = 6;
+                
+                for (let i = 0; i < numberOfStrands; i++) {
+                    const strand = document.createElement('div');
+                    strand.classList.add('web-strand');
+                    
+                    // Random position
+                    const posX = Math.random() * 80 + 10; // 10-90% of width
+                    const height = Math.random() * 150 + 100; // 100-250px height
+                    
+                    strand.style.left = `${posX}%`;
+                    strand.style.top = '0';
+                    strand.style.height = `${height}px`;
+                    strand.style.opacity = '0.2';
+                    strand.style.animation = `webStrandAnimation ${Math.random() * 2 + 3}s ease-in-out infinite`;
+                    
+                    container.appendChild(strand);
+                }
+            }
+            
+            // Create keyframe animation for web strands
+            function createWebStrandAnimation() {
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes webStrandAnimation {
+                        0% { transform: scaleY(0.8); }
+                        50% { transform: scaleY(1.2); }
+                        100% { transform: scaleY(0.8); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            createWebStrandAnimation();
+            createWebStrands();
+            
+            // Add input field animations
+            const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.style.borderColor = 'var(--color-accent-primary)';
+                    input.style.boxShadow = '0 0 10px rgba(255, 49, 49, 0.3)';
+                    input.style.transform = 'translateY(-3px)';
+                });
+                
+                input.addEventListener('blur', () => {
+                    input.style.borderColor = 'var(--color-border)';
+                    input.style.boxShadow = 'none';
+                    input.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Add hover effect for contact info items
+            const contactItems = document.querySelectorAll('.contact-info-item');
+            contactItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const icon = item.querySelector('.contact-info-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2) rotate(10deg)';
+                        icon.style.color = 'var(--color-accent-secondary)';
+                    }
+                    
+                    item.style.transform = 'translateX(10px)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    const icon = item.querySelector('.contact-info-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1) rotate(0)';
+                        icon.style.color = 'var(--color-accent-primary)';
+                    }
+                    
+                    item.style.transform = 'translateX(0)';
+                });
+            });
+            
+            // Form submission handling
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show sending animation
+                const submitButton = this.querySelector('button');
+                const originalText = submitButton.innerText;
+                submitButton.innerText = "Sending...";
+                submitButton.disabled = true;
+                submitButton.style.opacity = "0.7";
+                
+                // Get form data
+                const templateParams = {
+                    name: this.name.value,
+                    email: this.email.value,
+                    subject: this.subject.value,
+                    message: this.message.value,
+                    time: new Date().toLocaleString() // Add current time for the template
+                };
+                
+                // Replace with your actual EmailJS service and template IDs
+                emailjs.send('service_yr5fl2q', 'template_a8h4rjw', templateParams)
+                    .then(function(response) {
+                        // Show success message
+                        const statusDiv = document.getElementById('form-status');
+                        statusDiv.className = 'form-status success';
+                        statusDiv.innerHTML = 'Message sent successfully! I\'ll get back to you soon.';
+                        
+                        // Show success message with Spider-Man style
+                        submitButton.innerText = "Message Sent!";
+                        submitButton.style.backgroundColor = "#4caf50";
+                        submitButton.style.opacity = "1";
+                        
+                        // Create success animation
+                        const successEffect = document.createElement('div');
+                        successEffect.className = 'sound-effect';
+                        successEffect.textContent = 'SENT!';
+                        successEffect.style.position = 'absolute';
+                        successEffect.style.top = '50%';
+                        successEffect.style.left = '50%';
+                        successEffect.style.transform = 'translate(-50%, -50%) scale(0)';
+                        successEffect.style.transformOrigin = 'center';
+                        successEffect.style.animation = 'successPop 0.5s forwards';
+                        document.getElementById('contact-form').appendChild(successEffect);
+                        
+                        // Reset form after delay
+                        setTimeout(() => {
+                            document.getElementById('contact-form').reset();
+                            successEffect.remove();
+                            submitButton.innerText = originalText;
+                            submitButton.style.backgroundColor = "";
+                            submitButton.disabled = false;
+                            
+                            // Keep success message visible
+                            setTimeout(() => {
+                                statusDiv.style.opacity = "0";
+                                statusDiv.style.transform = "translateY(20px)";
+                            }, 5000);
+                        }, 2000);
+                        
+                        console.log('Email sent!', response);
+                    }, function(error) {
+                        // Show error message
+                        const statusDiv = document.getElementById('form-status');
+                        statusDiv.className = 'form-status error';
+                        statusDiv.innerHTML = 'Oops! Something went wrong. Please try again or email me directly.';
+                        
+                        // Visual error feedback
+                        submitButton.innerText = "Error! Try Again";
+                        submitButton.style.backgroundColor = "#f44336";
+                        submitButton.style.opacity = "1";
+                        
+                        // Reset button after delay
+                        setTimeout(() => {
+                            submitButton.innerText = originalText;
+                            submitButton.style.backgroundColor = "";
+                            submitButton.disabled = false;
+                            
+                            // Keep error message visible
+                            setTimeout(() => {
+                                statusDiv.style.opacity = "0";
+                                statusDiv.style.transform = "translateY(20px)";
+                            }, 5000);
+                        }, 3000);
+                        
+                        console.log('Failed to send email:', error);
+                    });
+            });
+            
+            // Animate sound effect
+            const soundEffect = document.querySelector('.sound-effect');
+            if (soundEffect) {
+                setInterval(() => {
+                    soundEffect.style.transform = 'scale(1.1) rotate(10deg)';
+                    setTimeout(() => {
+                        soundEffect.style.transform = 'scale(1) rotate(10deg)';
+                    }, 300);
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,94 +1,144 @@
-
-
-    <!-- Background Effects -->
-    <div id="background-layer"></div>
-    <div id="particles-js" class="particle-background"></div>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="../js/main.js"></script>
-</body>
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Mahanadi Parisara</title>
 
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-THQZH8J7');</script>
+    <!-- End Google Tag Manager -->
+
     <!-- Preload Critical Assets -->
     <link rel="preload" href="../css/main.css" as="style">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/main.css">
     <style>
-        .project-details {
-            background: rgba(18, 24, 32, 0.7);
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .project-details:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 212, 0.2);
-        }
-
-        .project-name {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--color-accent-primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            color: var(--color-text-secondary);
-        }
-
-        .project-description, 
-        .project-challenges {
-            margin-bottom: 1rem;
-            color: var(--color-text-primary);
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tech-tag {
-            background: rgba(0, 255, 212, 0.1);
-            color: var(--color-accent-primary);
-            padding: 0.25rem 0.5rem;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-
-        .nav-logo a {
-            color: var(--color-text-primary);
-            text-decoration: none;
-            transition: var(--transition-standard);
-            font-family: 'Orbitron', sans-serif; /* Matching the hero title font */
+        .page-title-wrapper {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
         }
         
-        .nav-logo a:hover {
+        .page-title {
+            display: inline-block;
+            position: relative;
+            font-family: 'Comic Neue', 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            text-shadow: 3px 3px 0 var(--color-accent-primary), -3px -3px 0 var(--color-accent-secondary);
+            padding: 0.5rem 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-title:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            transform: skewX(-15deg);
+            z-index: -1;
+            border-radius: 5px;
+        }
+        
+        .projects-grid {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .project-details {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .project-details:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff3131' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .project-details:hover:after {
+            opacity: 1;
+        }
+        
+        .learn-more-btn {
+            background: rgba(255, 49, 49, 0.2);
             color: var(--color-accent-primary);
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            font-family: 'Comic Neue', 'Orbitron', sans-serif;
             text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .learn-more-btn:hover {
+            background: rgba(255, 49, 49, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 49, 49, 0.3);
+        }
+        
+        .learn-more-btn:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: -100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .learn-more-btn:hover:after {
+            left: 100%;
+        }
+        
+        .sound-effect-wrapper {
+            position: absolute;
+            top: -30px;
+            right: 20%;
+            transform: rotate(10deg);
+            z-index: 2;
         }
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Comic Dots Overlay -->
+    <div class="comic-dots"></div>
+    
     <!-- Navigation -->
-    <nav class="cyber-nav">
+    <nav class="spider-nav">
         <div class="nav-logo"><a href="/index.html">MP</a></div>
         <ul class="nav-menu">
             <li><a href="/index.html" class="nav-link">Home</a></li>
@@ -100,12 +150,18 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="cyber-container">
-        <h1 class="hero-title"> Projects </h1>
+    <main class="spider-container" role="main">
+        <div class="page-title-wrapper">
+            <div class="sound-effect-wrapper" aria-hidden="true">
+                <span class="sound-effect">HELLO!</span>
+            </div>
+            <h1 class="page-title">Projects</h1>
+        </div>
 
         <section class="projects-grid">
             <div class="project-details">
-                <h3 class="project-name"> Pluto </h3> <h5>(Previously known as Finance Manager)</h5>
+                <h3 class="project-name">Pluto</h3>
+                <h5>(Previously known as Finance Manager)</h5>
                 
                 <div class="project-meta">
                     <span><strong>Status:</strong> Completed</span>
@@ -128,25 +184,14 @@
                     <strong>Technical Challenges:</strong> Implemented complex sync logic, resolved Google Sign-In integration issues, optimized app performance, and developed a robust data model to prevent conflicts.
                 </p>
 
-                    <div style="text-align: center; margin-top: 1.5rem;">
-        <a href="pluto.html" style="
-            background: rgba(0, 255, 212, 0.2);
-            color: var(--color-accent-primary);
-            border: 1px solid var(--color-border);
-            border-radius: 5px;
-            padding: 0.5rem 1rem;
-            font-family: 'Orbitron', sans-serif;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        ">Learn More</a>
-    </div>
-</div>
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="pluto.html" class="learn-more-btn">Learn More</a>
+                </div>
             </div>
 
             <!-- You can add more projects here following the same structure -->
             <div class="project-details">
-                <h3 class="project-name"> Automation </h3>
+                <h3 class="project-name">Automation</h3>
                 
                 <div class="project-meta">
                     <span><strong>Status:</strong> Implemented</span>
@@ -182,5 +227,80 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="../js/main.js"></script>
+    
+    <script>
+        // Add staggered animation to project cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const projects = document.querySelectorAll('.project-details');
+            
+            projects.forEach((project, index) => {
+                // Set initial state
+                project.style.opacity = '0';
+                project.style.transform = 'translateY(30px)';
+                
+                // Animate in with staggered delay
+                setTimeout(() => {
+                    project.style.transition = 'all 0.7s cubic-bezier(0.19, 1, 0.22, 1)';
+                    project.style.opacity = '1';
+                    project.style.transform = 'translateY(0)';
+                }, 200 * index);
+                
+                // Animate tech stack tags
+                const techTags = project.querySelectorAll('.tech-tag');
+                techTags.forEach((tag, tagIndex) => {
+                    tag.style.opacity = '0';
+                    tag.style.transform = 'translateY(10px)';
+                    
+                    setTimeout(() => {
+                        tag.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
+                        tag.style.opacity = '1';
+                        tag.style.transform = 'translateY(0)';
+                    }, 500 + (100 * tagIndex));
+                });
+                
+                // Add parallax effect on hover
+                project.addEventListener('mousemove', (e) => {
+                    const rect = project.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const offsetX = (x - centerX) / 30;
+                    const offsetY = (y - centerY) / 30;
+                    
+                    project.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+                    
+                    // Move project name for additional effect
+                    const projectName = project.querySelector('.project-name');
+                    if (projectName) {
+                        projectName.style.transform = `translate3d(${offsetX * 1.5}px, ${offsetY * 1.5}px, 20px)`;
+                    }
+                });
+                
+                // Reset on mouse leave
+                project.addEventListener('mouseleave', () => {
+                    project.style.transform = 'translate3d(0, 0, 0)';
+                    
+                    const projectName = project.querySelector('.project-name');
+                    if (projectName) {
+                        projectName.style.transform = 'translate3d(0, 0, 0)';
+                    }
+                });
+            });
+            
+            // Animate sound effect
+            const soundEffect = document.querySelector('.sound-effect');
+            if (soundEffect) {
+                setInterval(() => {
+                    soundEffect.style.transform = 'scale(1.1) rotate(10deg)';
+                    setTimeout(() => {
+                        soundEffect.style.transform = 'scale(1) rotate(10deg)';
+                    }, 300);
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>
