@@ -1,4 +1,4 @@
-// Clean version without debug statements - js/consent.js
+// js/consent.js - With subtle, harmonious animation
 
 (function() {
     // Constants
@@ -6,17 +6,20 @@
     const CONSENT_EXPIRY_DAYS = 365;
     
     // DOM elements
-    const cookieBanner = document.getElementById('cookie-consent');
-    const acceptAllButton = document.getElementById('accept-all');
-    const savePreferencesButton = document.getElementById('save-preferences');
-    const closeButton = document.getElementById('cookie-close');
-    const analyticsCookies = document.getElementById('analytics-cookies');
-    const marketingCookies = document.getElementById('marketing-cookies');
+    let cookieBanner, acceptAllButton, savePreferencesButton, closeButton, analyticsCookies, marketingCookies;
     
     // Initialize on DOM content loaded
     document.addEventListener('DOMContentLoaded', function() {
+        // Get DOM elements
+        cookieBanner = document.getElementById('cookie-consent');
+        acceptAllButton = document.getElementById('accept-all');
+        savePreferencesButton = document.getElementById('save-preferences');
+        closeButton = document.getElementById('cookie-close');
+        analyticsCookies = document.getElementById('analytics-cookies');
+        marketingCookies = document.getElementById('marketing-cookies');
+        
+        // Initialize consent banner
         initConsentBanner();
-        createPreferencesButton();
     });
     
     // Initialize consent banner
@@ -24,21 +27,57 @@
         const savedConsent = getSavedConsent();
         
         if (savedConsent) {
-            // Apply saved consent settings
+            // Apply saved consent settings without showing banner
             updateGTMConsent(savedConsent);
+            
+            // Create preferences button for returning users
+            createPreferencesButton();
         } else {
-            // Show cookie banner after a short delay
+            // Show cookie banner after intro animation completes
             if (cookieBanner) {
-                // Make sure the banner is initially hidden but properly styled
-                cookieBanner.style.display = 'block';
+                // Wait for intro animation to complete before showing cookie banner
+                const bannerShowDelay = 5500; // Intro animation takes ~5s
                 
                 setTimeout(() => {
                     cookieBanner.classList.add('active');
-                }, 1000);
+                    
+                    // Add subtle fade-in-up animation
+                    subtleAnimation();
+                    
+                    console.log("Cookie banner activated"); // Debug message
+                }, bannerShowDelay);
             }
         }
         
-        // Set up event listeners
+        // Set up event listeners for cookie buttons
+        setupEventListeners();
+    }
+    
+    // Adds a subtle animation to gently draw attention
+    function subtleAnimation() {
+        // Start slightly below and fade in
+        cookieBanner.style.transform = 'translate(-50%, -45%)';
+        cookieBanner.style.opacity = '0';
+        
+        // Animate to final position
+        setTimeout(() => {
+            cookieBanner.style.transform = 'translate(-50%, -50%)';
+            cookieBanner.style.opacity = '1';
+            
+            // Add a very subtle shadow pulse
+            setTimeout(() => {
+                // Just one subtle pulse
+                cookieBanner.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(67, 97, 238, 0.4)';
+                
+                setTimeout(() => {
+                    cookieBanner.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(67, 97, 238, 0.3)';
+                }, 500);
+            }, 300);
+        }, 100);
+    }
+    
+    // Set up event listeners for cookie banner buttons
+    function setupEventListeners() {
         if (acceptAllButton) {
             acceptAllButton.addEventListener('click', handleAcceptAll);
         }
@@ -49,27 +88,26 @@
         
         if (closeButton) {
             closeButton.addEventListener('click', handleClose);
-            
-            // Add tooltip to close button
-            closeButton.title = "Close (will only allow necessary cookies)";
         }
     }
     
     // Create a small button to reopen cookie preferences
     function createPreferencesButton() {
-        // Only create if consent was already given
-        if (getSavedConsent()) {
+        // Only create if it doesn't already exist
+        if (!document.querySelector('.cookie-preferences-button')) {
             const preferencesButton = document.createElement('button');
             preferencesButton.className = 'cookie-preferences-button';
             preferencesButton.setAttribute('aria-label', 'Cookie Preferences');
             preferencesButton.innerHTML = '🍪';
             preferencesButton.title = "Change cookie preferences";
+            
             preferencesButton.addEventListener('click', function() {
-                cookieBanner.style.display = 'block';
-                setTimeout(() => {
-                    cookieBanner.classList.add('active');
-                }, 10);
+                cookieBanner.classList.add('active');
+                
+                // Add subtle animation when reopening
+                subtleAnimation();
             });
+            
             document.body.appendChild(preferencesButton);
         }
     }
@@ -86,6 +124,7 @@
         saveConsent(consent);
         updateGTMConsent(consent);
         closeBanner();
+        createPreferencesButton();
     }
     
     // Handle "Save Preferences" button click
@@ -100,6 +139,7 @@
         saveConsent(consent);
         updateGTMConsent(consent);
         closeBanner();
+        createPreferencesButton();
     }
     
     // Handle banner close button click
@@ -115,18 +155,23 @@
         saveConsent(consent);
         updateGTMConsent(consent);
         closeBanner();
+        createPreferencesButton();
     }
     
-    // Close the banner
+    // Close the banner with a subtle animation
     function closeBanner() {
-        cookieBanner.classList.remove('active');
+        // Subtle fade out animation
+        cookieBanner.style.opacity = '0';
+        cookieBanner.style.transform = 'translate(-50%, -55%)';
         
-        // After transition completes, set display to none
         setTimeout(() => {
-            cookieBanner.style.display = 'none';
-        }, 500); // Match this to your CSS transition duration
-        
-        createPreferencesButton();
+            cookieBanner.classList.remove('active');
+            
+            // Reset styles for next time
+            setTimeout(() => {
+                cookieBanner.style.transform = 'translate(-50%, -50%)';
+            }, 300);
+        }, 300);
     }
     
     // Save consent preferences to cookie
