@@ -59,90 +59,141 @@
         </div>
     </div>
 </div>
-
+    
     <!-- Preload Critical Assets -->
     <link rel="preload" href="./css/main.css" as="style">
-
+    
     <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap"
         rel="stylesheet">
-
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/main.css">
 
-    <!-- Add this to the head section of your index.html file -->
+    <!-- Intro Animation Styles -->
     <style>
-        /* Typewriter Effect Styles */
-        .typewriter {
-            display: inline-block;
+        /* Initial loading overlay */
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-bg-primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Intro name container - centered in viewport */
+        .intro-name-container {
             position: relative;
+            text-align: center;
         }
 
-        .typewriter::after {
-            content: '|';
-            position: absolute;
-            right: -8px;
-            color: var(--color-accent-primary);
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* Hide text initially */
-        .hero-title .typewriter {
-            overflow: hidden;
-            width: 0%;
+        /* Intro name styling */
+        .intro-name {
+            font-family: 'Comic Neue', 'Orbitron', sans-serif;
+            font-size: 5rem; /* Larger size initially */
+            font-weight: 800;
+            color: var(--color-text-primary);
+            text-shadow: 0 0 20px rgba(67, 97, 238, 0.6);
+            position: relative;
             white-space: nowrap;
-            animation: typing 2.5s steps(30, end) forwards;
-            animation-delay: 0.5s;
-            /* Short delay before typing starts */
         }
 
-        @keyframes typing {
-            from {
-                width: 0;
-            }
+        /* Typewriter effect for intro */
+        .intro-name.typewriter {
+            overflow: hidden;
+            border-right: 0.15em solid var(--color-accent-secondary);
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: 
+                typing 3.5s steps(30, end),
+                blink-caret 0.75s step-end infinite;
+        }
 
+        /* Typewriter animations */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--color-accent-secondary) }
+        }
+
+        /* Hide all content initially except the intro */
+        body.loading {
+            overflow: hidden; /* Prevent scrolling during intro */
+        }
+
+        body.loading .spider-container,
+        body.loading .spider-nav,
+        body.loading .comic-dots {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Make content visible after animation */
+        body.loaded .spider-container,
+        body.loaded .spider-nav,
+        body.loaded .comic-dots {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 1s ease;
+        }
+
+        /* Add staggered reveal for content */
+        .fade-in-stagger {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        body.loaded .fade-in-stagger {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
             to {
-                width: 100%;
+                opacity: 1;
+                transform: translateY(0);
             }
+        }
+
+        .fade-in-stagger:nth-child(1) { animation-delay: 0.2s; }
+        .fade-in-stagger:nth-child(2) { animation-delay: 0.4s; }
+        .fade-in-stagger:nth-child(3) { animation-delay: 0.6s; }
+        .fade-in-stagger:nth-child(4) { animation-delay: 0.8s; }
+
+        /* Optional: Add a slight glowing pulse during the intro */
+        .intro-name-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, 
+                rgba(67, 97, 238, 0.2) 0%, 
+                rgba(72, 191, 227, 0.1) 40%, 
+                transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+            to { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
         }
     </style>
-
-    <!-- Replace your existing hero-title in the body with this -->
-    <h1 class="hero-title">
-        <span class="typewriter">Mahanadi Parisara</span>
-    </h1>
-
-    <!-- Add this script right before the closing body tag -->
-    <script>
-        // Enhanced typewriter effect with variable speed
-        document.addEventListener('DOMContentLoaded', function () {
-            // Pause before removing cursor after typing
-            setTimeout(() => {
-                // Remove cursor after typing is complete
-                const typewriter = document.querySelector('.typewriter');
-                if (typewriter) {
-                    typewriter.style.animation = 'none';
-
-                    // Add a subtle effect after typing is done
-                    typewriter.style.textShadow = '3px 3px 0 var(--color-accent-primary), -3px -3px 0 var(--color-accent-secondary)';
-                    typewriter.style.transition = 'text-shadow 0.5s ease';
-                }
-            }, 3200); // Wait for typing animation to complete plus a little extra
-        });
-    </script>
 </head>
 
 <body>
@@ -153,7 +204,7 @@
 
     <!-- Comic Dots Overlay -->
     <div class="comic-dots"></div>
-
+    
     <!-- Navigation -->
     <nav class="spider-nav">
         <div class="nav-logo"><a href="/">MP</a></div>
@@ -170,15 +221,15 @@
     <main class="spider-container" role="main">
         <section class="home-section">
             <div class="profile-container">
-                <div class="profile-image-wrapper float">
+                <div class="profile-image-wrapper float fade-in-stagger">
                     <img src="./assets/profile.jpg" alt="Mahanadi Parisara" class="profile-image">
                 </div>
                 <div class="hero-content">
-                    <h1 class="hero-title">
+                    <h1 class="hero-title fade-in-stagger">
                         <span class="typewriter">Mahanadi Parisara</span>
                     </h1>
-                    <p class="hero-subtitle">Digital Marketing Technologist</p>
-                    <div class="hero-description comic-effect">
+                    <p class="hero-subtitle fade-in-stagger">Digital Marketing Technologist</p>
+                    <div class="hero-description comic-effect fade-in-stagger">
                         <p>Transforming data into digital strategies with precision and innovation.</p>
                     </div>
                 </div>
@@ -187,19 +238,19 @@
 
         <section class="quick-links">
             <div class="link-grid">
-                <a href="/html/skills" class="quick-link">
+                <a href="/html/skills" class="quick-link fade-in-stagger">
                     <span class="link-icon">🚀</span>
                     <span class="link-text">My Skills</span>
                 </a>
-                <a href="/html/clients" class="quick-link">
+                <a href="/html/clients" class="quick-link fade-in-stagger">
                     <span class="link-icon">🌐</span>
                     <span class="link-text">Clients</span>
                 </a>
-                <a href="/html/projects" class="quick-link">
+                <a href="/html/projects" class="quick-link fade-in-stagger">
                     <span class="link-icon">💡</span>
                     <span class="link-text">Projects</span>
                 </a>
-                <a href="/html/contact" class="quick-link">
+                <a href="/html/contact" class="quick-link fade-in-stagger">
                     <span class="link-icon">📧</span>
                     <span class="link-text">Contact Me</span>
                 </a>
@@ -215,53 +266,7 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/consent.js"></script>
-
-    <script>
-        // Initialize any Spider-Verse specific animations
-        document.addEventListener('DOMContentLoaded', () => {
-            // Apply initial animation classes
-            const animElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-description');
-            animElements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 300 * index);
-            });
-
-            // Add parallax effect on mouse move
-            document.addEventListener('mousemove', (e) => {
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-
-                const profileImg = document.querySelector('.profile-image-wrapper');
-                const heroContent = document.querySelector('.hero-content');
-
-                if (profileImg && heroContent) {
-                    profileImg.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
-                    heroContent.style.transform = `translate(${-mouseX * 20}px, ${-mouseY * 20}px)`;
-                }
-            });
-        });
-    </script>
-
-    <script>
-        // Enhanced typewriter effect with variable speed
-        document.addEventListener('DOMContentLoaded', function () {
-            // Pause before removing cursor after typing
-            setTimeout(() => {
-                // Remove cursor after typing is complete
-                const typewriter = document.querySelector('.typewriter');
-                if (typewriter) {
-                    typewriter.style.animation = 'none';
-
-                    // Add a subtle effect after typing is done
-                    typewriter.style.textShadow = '3px 3px 0 var(--color-accent-primary), -3px -3px 0 var(--color-accent-secondary)';
-                    typewriter.style.transition = 'text-shadow 0.5s ease';
-                }
-            }, 3200); // Wait for typing animation to complete plus a little extra
-        });
-    </script>
-
+    <script src="/js/intro-animation.js"></script>
 
 <!-- Consent mode -->
 <div id="cookie-consent" class="cookie-banner">
