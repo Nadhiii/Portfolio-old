@@ -1,55 +1,40 @@
-// Add this debug version of consent.js temporarily to troubleshoot
-// Add console logs to see what's happening
+// Clean version without debug statements - js/consent.js
 
 (function() {
     // Constants
     const COOKIE_CONSENT_NAME = 'mahanadi_cookie_consent';
     const CONSENT_EXPIRY_DAYS = 365;
     
-    console.log('Cookie consent script loaded');
-    
     // DOM elements
     const cookieBanner = document.getElementById('cookie-consent');
-    console.log('Found cookie banner element:', cookieBanner !== null);
-    
     const acceptAllButton = document.getElementById('accept-all');
     const savePreferencesButton = document.getElementById('save-preferences');
     const closeButton = document.getElementById('cookie-close');
     const analyticsCookies = document.getElementById('analytics-cookies');
     const marketingCookies = document.getElementById('marketing-cookies');
     
-    console.log('Accept All button found:', acceptAllButton !== null);
-    console.log('Save Prefs button found:', savePreferencesButton !== null);
-    console.log('Close button found:', closeButton !== null);
-    
     // Initialize on DOM content loaded
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOM loaded, initializing consent banner');
         initConsentBanner();
         createPreferencesButton();
     });
     
     // Initialize consent banner
     function initConsentBanner() {
-        console.log('Initializing banner');
         const savedConsent = getSavedConsent();
-        console.log('Saved consent:', savedConsent);
         
         if (savedConsent) {
             // Apply saved consent settings
-            console.log('Applying saved consent');
             updateGTMConsent(savedConsent);
         } else {
             // Show cookie banner after a short delay
-            console.log('No saved consent found, will show banner');
             if (cookieBanner) {
+                // Make sure the banner is initially hidden but properly styled
+                cookieBanner.style.display = 'block';
+                
                 setTimeout(() => {
-                    console.log('Showing banner now');
                     cookieBanner.classList.add('active');
-                    console.log('Banner active class added');
                 }, 1000);
-            } else {
-                console.error('Banner element not found by ID "cookie-consent"');
             }
         }
         
@@ -64,6 +49,9 @@
         
         if (closeButton) {
             closeButton.addEventListener('click', handleClose);
+            
+            // Add tooltip to close button
+            closeButton.title = "Close (will only allow necessary cookies)";
         }
     }
     
@@ -71,13 +59,16 @@
     function createPreferencesButton() {
         // Only create if consent was already given
         if (getSavedConsent()) {
-            console.log('Creating preferences button');
             const preferencesButton = document.createElement('button');
             preferencesButton.className = 'cookie-preferences-button';
             preferencesButton.setAttribute('aria-label', 'Cookie Preferences');
             preferencesButton.innerHTML = '🍪';
+            preferencesButton.title = "Change cookie preferences";
             preferencesButton.addEventListener('click', function() {
-                cookieBanner.classList.add('active');
+                cookieBanner.style.display = 'block';
+                setTimeout(() => {
+                    cookieBanner.classList.add('active');
+                }, 10);
             });
             document.body.appendChild(preferencesButton);
         }
@@ -85,7 +76,6 @@
     
     // Handle "Accept All" button click
     function handleAcceptAll() {
-        console.log('Accept All clicked');
         const consent = {
             necessary: true,
             analytics: true,
@@ -100,7 +90,6 @@
     
     // Handle "Save Preferences" button click
     function handleSavePreferences() {
-        console.log('Save Preferences clicked');
         const consent = {
             necessary: true, // Always required
             analytics: analyticsCookies.checked,
@@ -115,7 +104,6 @@
     
     // Handle banner close button click
     function handleClose() {
-        console.log('Close button clicked');
         // Default to necessary cookies only when closing without explicit choice
         const consent = {
             necessary: true,
@@ -131,28 +119,30 @@
     
     // Close the banner
     function closeBanner() {
-        console.log('Closing banner');
         cookieBanner.classList.remove('active');
+        
+        // After transition completes, set display to none
+        setTimeout(() => {
+            cookieBanner.style.display = 'none';
+        }, 500); // Match this to your CSS transition duration
+        
         createPreferencesButton();
     }
     
     // Save consent preferences to cookie
     function saveConsent(consentData) {
-        console.log('Saving consent data:', consentData);
         // Save as cookie
         const consentJson = JSON.stringify(consentData);
         const expiryDate = new Date();
         expiryDate.setDate(expiryDate.getDate() + CONSENT_EXPIRY_DAYS);
         
         document.cookie = `${COOKIE_CONSENT_NAME}=${encodeURIComponent(consentJson)};expires=${expiryDate.toUTCString()};path=/;SameSite=Strict`;
-        console.log('Saved to cookie');
         
         // Also save to localStorage as backup
         try {
             localStorage.setItem(COOKIE_CONSENT_NAME, consentJson);
-            console.log('Saved to localStorage');
         } catch (e) {
-            console.warn('Could not save consent to localStorage');
+            // Silent fail if localStorage is not available
         }
     }
     
@@ -165,10 +155,9 @@
             
         if (cookieValue) {
             try {
-                console.log('Found consent cookie');
                 return JSON.parse(decodeURIComponent(cookieValue.split('=')[1]));
             } catch (e) {
-                console.warn('Failed to parse consent cookie');
+                // Ignore parsing errors
             }
         }
         
@@ -176,20 +165,17 @@
         try {
             const localStorageValue = localStorage.getItem(COOKIE_CONSENT_NAME);
             if (localStorageValue) {
-                console.log('Found consent in localStorage');
                 return JSON.parse(localStorageValue);
             }
         } catch (e) {
-            console.warn('Could not retrieve consent from localStorage');
+            // Ignore localStorage errors
         }
         
-        console.log('No saved consent found');
         return null;
     }
     
     // Update Google Tag Manager with consent state
     function updateGTMConsent(consent) {
-        console.log('Updating GTM consent with:', consent);
         if (window.dataLayer) {
             // Push individual consent types to dataLayer
             window.dataLayer.push({
@@ -202,10 +188,6 @@
             window.dataLayer.push({
                 'event': 'consent_update'
             });
-            
-            console.log('Pushed consent to dataLayer');
-        } else {
-            console.warn('dataLayer not found, cannot update consent');
         }
     }
 })();

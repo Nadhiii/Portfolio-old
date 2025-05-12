@@ -6,17 +6,6 @@
     <title>Pluto | Mahanadi Parisara</title>
 
     <script>
-// Initialize dataLayer
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-// Set default consent state to denied
-window.dataLayer.push({
-    'analytics_storage': 'denied',
-    'ad_storage': 'denied',
-    'personalization_storage': 'denied'
-});
-
 // Initialize GTM
 (function(w,d,s,l,i){
     w[l]=w[l]||[];
@@ -28,6 +17,47 @@ window.dataLayer.push({
     f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-THQZH8J7');
 </script>
+
+<!-- Consent mode -->
+<div id="cookie-consent" class="cookie-banner">
+    <div class="cookie-content">
+        <div class="cookie-header">
+            <h3>🕸️ Cookie Preferences</h3>
+            <button id="cookie-close" class="cookie-close" aria-label="Close cookie banner" title="Close (will only allow necessary cookies)">&times;</button>
+        </div>
+        <p>This website uses cookies to enhance your experience and analyze site traffic. You can choose which cookies you consent to.</p>
+        <div class="cookie-options">
+            <div class="cookie-option">
+                <input type="checkbox" id="necessary-cookies" checked disabled>
+                <label for="necessary-cookies">
+                    <span class="cookie-name">Necessary</span>
+                    <span class="cookie-description">Required for the website to function.</span>
+                </label>
+            </div>
+            <div class="cookie-option">
+                <input type="checkbox" id="analytics-cookies" checked>
+                <label for="analytics-cookies">
+                    <span class="cookie-name">Analytics</span>
+                    <span class="cookie-description">Help us improve our website by collecting anonymous usage data.</span>
+                </label>
+            </div>
+            <div class="cookie-option">
+                <input type="checkbox" id="marketing-cookies">
+                <label for="marketing-cookies">
+                    <span class="cookie-name">Marketing</span>
+                    <span class="cookie-description">Allow us to provide personalized content and ads.</span>
+                </label>
+            </div>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-all" class="cookie-button cookie-accept-all">Accept All</button>
+            <button id="save-preferences" class="cookie-button cookie-save">Save Preferences</button>
+        </div>
+        <div class="cookie-footer">
+            <a href="/privacy-policy" class="cookie-link">Privacy Policy</a>
+        </div>
+    </div>
+</div>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="/css/main.css" as="style">
