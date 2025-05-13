@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', function() {
   // Create overlay to block interaction
   const overlay = document.createElement('div');
@@ -144,3 +145,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+*/

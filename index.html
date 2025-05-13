@@ -6,33 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahanadi Parisara | Digital Marketing Specialist</title>
 
-    <script>
-  // Consent Mode v2 setup
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
+ <!--   <script>
+// Initialize GTM
+(function(w,d,s,l,i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-THQZH8J7');
+</script>
 
-  // Default consent to denied
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'functionality_storage': 'denied',
-    'personalization_storage': 'denied',
-    'security_storage': 'granted', // Always grant security storage
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'wait_for_update': 500 // Wait for user decision
-  });
-
-  // These will trigger automatically when needed
-  gtag('set', 'ads_data_redaction', true);
-  gtag('set', 'url_passthrough', true);
-  
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-THQZH8J7');
-  </script>
+ Cookie Banner 
+<div id="cookie-consent" class="cookie-banner">
+    <div class="cookie-content">
+        <div class="cookie-header">
+            <h3>🕸️ Cookie Preferences</h3>
+            <button id="cookie-close" class="cookie-close" aria-label="Close cookie banner">&times;</button>
+        </div>
+        <p>This website uses cookies to enhance your experience and analyze site traffic. You can choose which cookies you consent to.</p>
+        <div class="cookie-options">
+            <div class="cookie-option">
+                <input type="checkbox" id="necessary-cookies" checked disabled>
+                <label for="necessary-cookies">
+                    <span class="cookie-name">Necessary</span>
+                    <span class="cookie-description">Required for the website to function.</span>
+                </label>
+            </div>
+            <div class="cookie-option">
+                <input type="checkbox" id="analytics-cookies" checked>
+                <label for="analytics-cookies">
+                    <span class="cookie-name">Analytics</span>
+                    <span class="cookie-description">Help us improve our website by collecting anonymous usage data.</span>
+                </label>
+            </div>
+            <div class="cookie-option">
+                <input type="checkbox" id="marketing-cookies">
+                <label for="marketing-cookies">
+                    <span class="cookie-name">Marketing</span>
+                    <span class="cookie-description">Allow us to provide personalized content and ads.</span>
+                </label>
+            </div>
+        </div>
+        <div class="cookie-actions">
+            <button id="accept-all" class="cookie-button cookie-accept-all">Accept All</button>
+            <button id="save-preferences" class="cookie-button cookie-save">Save Preferences</button>
+        </div>
+        <div class="cookie-footer">
+            <a href="/privacy-policy" class="cookie-link">Privacy Policy</a>
+        </div>
+    </div>
+</div>
+-->
     
     <!-- Preload Critical Assets -->
     <link rel="preload" href="./css/main.css" as="style">
@@ -181,8 +208,9 @@
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>    <!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Comic Dots Overlay -->
     <div class="comic-dots"></div>
@@ -262,10 +290,10 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="/js/main.js"></script>
-    <script src="/js/consent.js"></script>
+   <!-- <script src="/js/consent.js"></script>-->
     <script src="/js/intro-animation.js"></script>
 
-<!-- Consent mode -->
+<!-- Consent mode 
 <div id="cookie-consent" class="cookie-banner">
     <div class="cookie-content">
         <div class="cookie-header">
@@ -305,6 +333,7 @@
         </div>
     </div>
 </div>
+-->
 
 </body>
 
