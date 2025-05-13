@@ -1,70 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills | Mahanadi Parisara</title>
-    
-    <script>
-// Initialize GTM
-(function(w,d,s,l,i){
-    w[l]=w[l]||[];
-    w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true;
-    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-    f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-THQZH8J7');
-</script>
 
-<!-- Consent mode -->
-<div id="cookie-consent" class="cookie-banner">
-    <div class="cookie-content">
-        <div class="cookie-header">
-            <h3>🕸️ Cookie Preferences</h3>
-            <button id="cookie-close" class="cookie-close" aria-label="Close cookie banner" title="Close (will only allow necessary cookies)">&times;</button>
-        </div>
-        <p>This website uses cookies to enhance your experience and analyze site traffic. You can choose which cookies you consent to.</p>
-        <div class="cookie-options">
-            <div class="cookie-option">
-                <input type="checkbox" id="necessary-cookies" checked disabled>
-                <label for="necessary-cookies">
-                    <span class="cookie-name">Necessary</span>
-                    <span class="cookie-description">Required for the website to function.</span>
-                </label>
-            </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="analytics-cookies" checked>
-                <label for="analytics-cookies">
-                    <span class="cookie-name">Analytics</span>
-                    <span class="cookie-description">Help us improve our website by collecting anonymous usage data.</span>
-                </label>
-            </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="marketing-cookies">
-                <label for="marketing-cookies">
-                    <span class="cookie-name">Marketing</span>
-                    <span class="cookie-description">Allow us to provide personalized content and ads.</span>
-                </label>
-            </div>
-        </div>
-        <div class="cookie-actions">
-            <button id="accept-all" class="cookie-button cookie-accept-all">Accept All</button>
-            <button id="save-preferences" class="cookie-button cookie-save">Save Preferences</button>
-        </div>
-        <div class="cookie-footer">
-            <a href="/privacy-policy" class="cookie-link">Privacy Policy</a>
-        </div>
-    </div>
-</div>
+    <script>
+        // Consent Mode v2 setup
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        // Default consent to denied
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'functionality_storage': 'denied',
+            'personalization_storage': 'denied',
+            'security_storage': 'granted', // Always grant security storage
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'wait_for_update': 500 // Wait for user decision
+        });
+
+        // These will trigger automatically when needed
+        gtag('set', 'ads_data_redaction', true);
+        gtag('set', 'url_passthrough', true);
+
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-THQZH8J7');
+    </script>
 
     <!-- Preload Critical Assets -->
     <link rel="preload" href="../css/main.css" as="style">
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/main.css">
     <style>
@@ -73,7 +53,7 @@
             margin-bottom: 3rem;
             position: relative;
         }
-        
+
         .page-title {
             display: inline-block;
             position: relative;
@@ -85,7 +65,7 @@
             padding: 0.5rem 2rem;
             margin-bottom: 1rem;
         }
-        
+
         .page-title:before {
             content: '';
             position: absolute;
@@ -98,20 +78,20 @@
             z-index: -1;
             border-radius: 5px;
         }
-        
+
         .skills-container {
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s ease forwards 0.3s;
         }
-        
+
         @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .skill-description {
             text-align: center;
             max-width: 800px;
@@ -124,7 +104,7 @@
             border-radius: 10px;
             border: 2px solid var(--color-border);
         }
-        
+
         .skill-description:before {
             content: '';
             position: absolute;
@@ -135,7 +115,7 @@
             height: 3px;
             background: linear-gradient(to right, transparent, var(--color-accent-primary), transparent);
         }
-        
+
         .skill-description:after {
             content: '';
             position: absolute;
@@ -146,7 +126,7 @@
             height: 3px;
             background: linear-gradient(to right, transparent, var(--color-accent-secondary), transparent);
         }
-        
+
         .sound-effect-wrapper {
             position: absolute;
             top: -30px;
@@ -156,25 +136,26 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->
 
     <!-- Comic Dots Overlay -->
     <div class="comic-dots"></div>
-    
+
     <!-- Navigation -->
     <nav class="spider-nav">
-    <div class="nav-logo"><a href="/">MP</a></div>
-    <ul class="nav-menu">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/html/skills" class="nav-link">Skills</a></li>
-        <li><a href="/html/clients" class="nav-link">Clients</a></li>
-        <li><a href="/html/projects" class="nav-link">Projects</a></li>
-        <li><a href="/html/contact" class="nav-link">Contact</a></li>
-    </ul>
-</nav>
+        <div class="nav-logo"><a href="/">MP</a></div>
+        <ul class="nav-menu">
+            <li><a href="/" class="nav-link">Home</a></li>
+            <li><a href="/html/skills" class="nav-link">Skills</a></li>
+            <li><a href="/html/clients" class="nav-link">Clients</a></li>
+            <li><a href="/html/projects" class="nav-link">Projects</a></li>
+            <li><a href="/html/contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
 
 
     <!-- Main Content -->
@@ -185,9 +166,11 @@
             </div>
             <h1 class="page-title">Skills</h1>
         </div>
-        
+
         <div class="skill-description">
-            Like Spider-Man's web-slinging abilities, my digital marketing skills allow me to connect brands with their audiences across the digital landscape. Each skill has been honed through experience and continuous learning, creating a unique blend of technical expertise and creative problem-solving.
+            Like Spider-Man's web-slinging abilities, my digital marketing skills allow me to connect brands with their
+            audiences across the digital landscape. Each skill has been honed through experience and continuous
+            learning, creating a unique blend of technical expertise and creative problem-solving.
         </div>
 
         <section class="skills-container">
@@ -255,72 +238,72 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/consent.js"></script>
-    
+
     <script>
         // Add staggered animation to skill cards
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const cards = document.querySelectorAll('.skill-card');
-            
+
             cards.forEach((card, index) => {
                 // Set initial state
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(30px)';
-                
+
                 // Animate in with staggered delay
                 setTimeout(() => {
                     card.style.transition = 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)';
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }, 100 * index);
-                
+
                 // Animate progress bars on scroll
                 const progressBar = card.querySelector('.progress-bar');
                 if (progressBar) {
                     const width = progressBar.style.width;
                     progressBar.style.width = '0';
-                    
+
                     const observer = new IntersectionObserver((entries) => {
                         if (entries[0].isIntersecting) {
                             progressBar.style.width = width;
                             observer.disconnect();
                         }
                     }, { threshold: 0.5 });
-                    
+
                     observer.observe(card);
                 }
-                
+
                 // Add hover parallax effect
                 card.addEventListener('mousemove', (e) => {
                     const cardRect = card.getBoundingClientRect();
                     const cardCenterX = cardRect.left + cardRect.width / 2;
                     const cardCenterY = cardRect.top + cardRect.height / 2;
-                    
+
                     const mouseX = e.clientX - cardCenterX;
                     const mouseY = e.clientY - cardCenterY;
-                    
+
                     const rotateY = mouseX * 0.05;
                     const rotateX = -mouseY * 0.05;
-                    
+
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-                    
+
                     // Move the skill icon for parallax effect
                     const skillIcon = card.querySelector('.skill-icon');
                     if (skillIcon) {
                         skillIcon.style.transform = `translateX(${mouseX * 0.05}px) translateY(${mouseY * 0.05}px) scale(1.1)`;
                     }
                 });
-                
+
                 // Reset on mouse leave
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-                    
+
                     const skillIcon = card.querySelector('.skill-icon');
                     if (skillIcon) {
                         skillIcon.style.transform = 'translateX(0) translateY(0) scale(1)';
                     }
                 });
             });
-            
+
             // Animate sound effect
             const soundEffect = document.querySelector('.sound-effect');
             if (soundEffect) {
@@ -334,46 +317,49 @@
         });
     </script>
 
-<!-- Consent mode -->
-<div id="cookie-consent" class="cookie-banner">
-    <div class="cookie-content">
-        <div class="cookie-header">
-            <h3>🕸️ Cookie Preferences</h3>
-            <button id="cookie-close" class="cookie-close" aria-label="Close cookie banner">&times;</button>
-        </div>
-        <p>This website uses cookies to enhance your experience and analyze site traffic. You can choose which cookies you consent to.</p>
-        <div class="cookie-options">
-            <div class="cookie-option">
-                <input type="checkbox" id="necessary-cookies" checked disabled>
-                <label for="necessary-cookies">
-                    <span class="cookie-name">Necessary</span>
-                    <span class="cookie-description">Required for the website to function.</span>
-                </label>
+    <!-- Consent mode -->
+    <div id="cookie-consent" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-header">
+                <h3>🕸️ Cookie Preferences</h3>
+                <button id="cookie-close" class="cookie-close" aria-label="Close cookie banner">&times;</button>
             </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="analytics-cookies" checked>
-                <label for="analytics-cookies">
-                    <span class="cookie-name">Analytics</span>
-                    <span class="cookie-description">Help us improve our website by collecting anonymous usage data.</span>
-                </label>
+            <p>This website uses cookies to enhance your experience and analyze site traffic. You can choose which
+                cookies you consent to.</p>
+            <div class="cookie-options">
+                <div class="cookie-option">
+                    <input type="checkbox" id="necessary-cookies" checked disabled>
+                    <label for="necessary-cookies">
+                        <span class="cookie-name">Necessary</span>
+                        <span class="cookie-description">Required for the website to function.</span>
+                    </label>
+                </div>
+                <div class="cookie-option">
+                    <input type="checkbox" id="analytics-cookies" checked>
+                    <label for="analytics-cookies">
+                        <span class="cookie-name">Analytics</span>
+                        <span class="cookie-description">Help us improve our website by collecting anonymous usage
+                            data.</span>
+                    </label>
+                </div>
+                <div class="cookie-option">
+                    <input type="checkbox" id="marketing-cookies">
+                    <label for="marketing-cookies">
+                        <span class="cookie-name">Marketing</span>
+                        <span class="cookie-description">Allow us to provide personalized content and ads.</span>
+                    </label>
+                </div>
             </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="marketing-cookies">
-                <label for="marketing-cookies">
-                    <span class="cookie-name">Marketing</span>
-                    <span class="cookie-description">Allow us to provide personalized content and ads.</span>
-                </label>
+            <div class="cookie-actions">
+                <button id="accept-all" class="cookie-button cookie-accept-all">Accept All</button>
+                <button id="save-preferences" class="cookie-button cookie-save">Save Preferences</button>
             </div>
-        </div>
-        <div class="cookie-actions">
-            <button id="accept-all" class="cookie-button cookie-accept-all">Accept All</button>
-            <button id="save-preferences" class="cookie-button cookie-save">Save Preferences</button>
-        </div>
-        <div class="cookie-footer">
-            <a href="/privacy-policy" class="cookie-link">Privacy Policy</a>
+            <div class="cookie-footer">
+                <a href="/privacy-policy" class="cookie-link">Privacy Policy</a>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>

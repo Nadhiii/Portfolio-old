@@ -1,238 +1,146 @@
-// js/consent.js - With subtle, harmonious animation
-
-(function() {
-    // Constants
-    const COOKIE_CONSENT_NAME = 'mahanadi_cookie_consent';
-    const CONSENT_EXPIRY_DAYS = 365;
+document.addEventListener('DOMContentLoaded', function() {
+  // Create overlay to block interaction
+  const overlay = document.createElement('div');
+  overlay.id = 'consent-overlay';
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9990;
+    backdrop-filter: blur(5px);
+  `;
+  document.body.appendChild(overlay);
+  
+  // Check if consent has been given
+  const hasConsent = localStorage.getItem('cookieConsent');
+  
+  // Show cookie banner if no consent
+  const cookieBanner = document.getElementById('cookie-consent');
+  if (!hasConsent) {
+    cookieBanner.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  } else {
+    // If consent exists, apply stored preferences
+    applyStoredPreferences();
+    overlay.remove();
+  }
+  
+  // Handle button clicks
+  const acceptAllButton = document.getElementById('accept-all');
+  const savePrefsButton = document.getElementById('save-preferences');
+  const closeButton = document.getElementById('cookie-close');
+  
+  if (acceptAllButton) {
+    acceptAllButton.addEventListener('click', function() {
+      // Accept all cookies
+      const preferences = {
+        necessary: true,
+        analytics: true,
+        marketing: true,
+        timestamp: new Date().toISOString()
+      };
+      
+      savePreferences(preferences);
+      updateConsentMode(preferences);
+      hideBanner();
+    });
+  }
+  
+  if (savePrefsButton) {
+    savePrefsButton.addEventListener('click', function() {
+      // Save selected preferences
+      const analyticsConsent = document.getElementById('analytics-cookies').checked;
+      const marketingConsent = document.getElementById('marketing-cookies').checked;
+      
+      const preferences = {
+        necessary: true,
+        analytics: analyticsConsent,
+        marketing: marketingConsent,
+        timestamp: new Date().toISOString()
+      };
+      
+      savePreferences(preferences);
+      updateConsentMode(preferences);
+      hideBanner();
+    });
+  }
+  
+  if (closeButton) {
+    closeButton.addEventListener('click', function() {
+      // Necessary cookies only
+      const preferences = {
+        necessary: true,
+        analytics: false,
+        marketing: false,
+        timestamp: new Date().toISOString()
+      };
+      
+      savePreferences(preferences);
+      updateConsentMode(preferences);
+      hideBanner();
+    });
+  }
+  
+  // Add cookie preferences button after consent
+  function addPreferencesButton() {
+    // Check if button already exists
+    if (document.querySelector('.cookie-preferences-button')) return;
     
-    // DOM elements
-    let cookieBanner, acceptAllButton, savePreferencesButton, closeButton, analyticsCookies, marketingCookies;
+    const prefsButton = document.createElement('button');
+    prefsButton.className = 'cookie-preferences-button';
+    prefsButton.innerHTML = '🍪';
+    prefsButton.title = 'Cookie Preferences';
+    prefsButton.setAttribute('aria-label', 'Open Cookie Preferences');
     
-    // Initialize on DOM content loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get DOM elements
-        cookieBanner = document.getElementById('cookie-consent');
-        acceptAllButton = document.getElementById('accept-all');
-        savePreferencesButton = document.getElementById('save-preferences');
-        closeButton = document.getElementById('cookie-close');
-        analyticsCookies = document.getElementById('analytics-cookies');
-        marketingCookies = document.getElementById('marketing-cookies');
-        
-        // Initialize consent banner
-        initConsentBanner();
+    prefsButton.addEventListener('click', function() {
+      cookieBanner.classList.add('active');
+      // Reload saved preferences to checked state
+      const preferences = JSON.parse(localStorage.getItem('cookieConsent'));
+      if (preferences) {
+        document.getElementById('analytics-cookies').checked = preferences.analytics;
+        document.getElementById('marketing-cookies').checked = preferences.marketing;
+      }
     });
     
-    // Initialize consent banner
-    function initConsentBanner() {
-        const savedConsent = getSavedConsent();
-        
-        if (savedConsent) {
-            // Apply saved consent settings without showing banner
-            updateGTMConsent(savedConsent);
-            
-            // Create preferences button for returning users
-            createPreferencesButton();
-        } else {
-            // Show cookie banner after intro animation completes
-            if (cookieBanner) {
-                // Wait for intro animation to complete before showing cookie banner
-                const bannerShowDelay = 5500; // Intro animation takes ~5s
-                
-                setTimeout(() => {
-                    cookieBanner.classList.add('active');
-                    
-                    // Add subtle fade-in-up animation
-                    subtleAnimation();
-                    
-                    console.log("Cookie banner activated"); // Debug message
-                }, bannerShowDelay);
-            }
-        }
-        
-        // Set up event listeners for cookie buttons
-        setupEventListeners();
+    document.body.appendChild(prefsButton);
+  }
+  
+  // Hide banner and show preferences button
+  function hideBanner() {
+    cookieBanner.classList.remove('active');
+    document.body.style.overflow = ''; // Re-enable scrolling
+    overlay.remove();
+    addPreferencesButton();
+  }
+  
+  // Save preferences to localStorage
+  function savePreferences(preferences) {
+    localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+  }
+  
+  // Apply stored preferences
+  function applyStoredPreferences() {
+    const preferences = JSON.parse(localStorage.getItem('cookieConsent'));
+    if (preferences) {
+      updateConsentMode(preferences);
+      addPreferencesButton();
     }
-    
-    // Adds a subtle animation to gently draw attention
-    function subtleAnimation() {
-        // Start slightly below and fade in
-        cookieBanner.style.transform = 'translate(-50%, -45%)';
-        cookieBanner.style.opacity = '0';
-        
-        // Animate to final position
-        setTimeout(() => {
-            cookieBanner.style.transform = 'translate(-50%, -50%)';
-            cookieBanner.style.opacity = '1';
-            
-            // Add a very subtle shadow pulse
-            setTimeout(() => {
-                // Just one subtle pulse
-                cookieBanner.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(67, 97, 238, 0.4)';
-                
-                setTimeout(() => {
-                    cookieBanner.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(67, 97, 238, 0.3)';
-                }, 500);
-            }, 300);
-        }, 100);
-    }
-    
-    // Set up event listeners for cookie banner buttons
-    function setupEventListeners() {
-        if (acceptAllButton) {
-            acceptAllButton.addEventListener('click', handleAcceptAll);
-        }
-        
-        if (savePreferencesButton) {
-            savePreferencesButton.addEventListener('click', handleSavePreferences);
-        }
-        
-        if (closeButton) {
-            closeButton.addEventListener('click', handleClose);
-        }
-    }
-    
-    // Create a small button to reopen cookie preferences
-    function createPreferencesButton() {
-        // Only create if it doesn't already exist
-        if (!document.querySelector('.cookie-preferences-button')) {
-            const preferencesButton = document.createElement('button');
-            preferencesButton.className = 'cookie-preferences-button';
-            preferencesButton.setAttribute('aria-label', 'Cookie Preferences');
-            preferencesButton.innerHTML = '🍪';
-            preferencesButton.title = "Change cookie preferences";
-            
-            preferencesButton.addEventListener('click', function() {
-                cookieBanner.classList.add('active');
-                
-                // Add subtle animation when reopening
-                subtleAnimation();
-            });
-            
-            document.body.appendChild(preferencesButton);
-        }
-    }
-    
-    // Handle "Accept All" button click
-    function handleAcceptAll() {
-        const consent = {
-            necessary: true,
-            analytics: true,
-            marketing: true,
-            timestamp: new Date().toISOString()
-        };
-        
-        saveConsent(consent);
-        updateGTMConsent(consent);
-        closeBanner();
-        createPreferencesButton();
-    }
-    
-    // Handle "Save Preferences" button click
-    function handleSavePreferences() {
-        const consent = {
-            necessary: true, // Always required
-            analytics: analyticsCookies.checked,
-            marketing: marketingCookies.checked,
-            timestamp: new Date().toISOString()
-        };
-        
-        saveConsent(consent);
-        updateGTMConsent(consent);
-        closeBanner();
-        createPreferencesButton();
-    }
-    
-    // Handle banner close button click
-    function handleClose() {
-        // Default to necessary cookies only when closing without explicit choice
-        const consent = {
-            necessary: true,
-            analytics: false,
-            marketing: false,
-            timestamp: new Date().toISOString()
-        };
-        
-        saveConsent(consent);
-        updateGTMConsent(consent);
-        closeBanner();
-        createPreferencesButton();
-    }
-    
-    // Close the banner with a subtle animation
-    function closeBanner() {
-        // Subtle fade out animation
-        cookieBanner.style.opacity = '0';
-        cookieBanner.style.transform = 'translate(-50%, -55%)';
-        
-        setTimeout(() => {
-            cookieBanner.classList.remove('active');
-            
-            // Reset styles for next time
-            setTimeout(() => {
-                cookieBanner.style.transform = 'translate(-50%, -50%)';
-            }, 300);
-        }, 300);
-    }
-    
-    // Save consent preferences to cookie
-    function saveConsent(consentData) {
-        // Save as cookie
-        const consentJson = JSON.stringify(consentData);
-        const expiryDate = new Date();
-        expiryDate.setDate(expiryDate.getDate() + CONSENT_EXPIRY_DAYS);
-        
-        document.cookie = `${COOKIE_CONSENT_NAME}=${encodeURIComponent(consentJson)};expires=${expiryDate.toUTCString()};path=/;SameSite=Strict`;
-        
-        // Also save to localStorage as backup
-        try {
-            localStorage.setItem(COOKIE_CONSENT_NAME, consentJson);
-        } catch (e) {
-            // Silent fail if localStorage is not available
-        }
-    }
-    
-    // Get saved consent from cookie or localStorage
-    function getSavedConsent() {
-        // Try to get from cookie first
-        const cookieValue = document.cookie
-            .split('; ')
-            .find(row => row.startsWith(`${COOKIE_CONSENT_NAME}=`));
-            
-        if (cookieValue) {
-            try {
-                return JSON.parse(decodeURIComponent(cookieValue.split('=')[1]));
-            } catch (e) {
-                // Ignore parsing errors
-            }
-        }
-        
-        // Try localStorage as fallback
-        try {
-            const localStorageValue = localStorage.getItem(COOKIE_CONSENT_NAME);
-            if (localStorageValue) {
-                return JSON.parse(localStorageValue);
-            }
-        } catch (e) {
-            // Ignore localStorage errors
-        }
-        
-        return null;
-    }
-    
-    // Update Google Tag Manager with consent state
-    function updateGTMConsent(consent) {
-        if (window.dataLayer) {
-            // Push individual consent types to dataLayer
-            window.dataLayer.push({
-                'analytics_storage': consent.analytics ? 'granted' : 'denied',
-                'ad_storage': consent.marketing ? 'granted' : 'denied',
-                'personalization_storage': consent.marketing ? 'granted' : 'denied'
-            });
-            
-            // Push consent_update event
-            window.dataLayer.push({
-                'event': 'consent_update'
-            });
-        }
-    }
-})();
+  }
+  
+  // Update Google Consent Mode v2
+  function updateConsentMode(preferences) {
+    // Push to dataLayer for GTM
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'consentUpdated',
+      'consent': {
+        'analytics': preferences.analytics,
+        'marketing': preferences.marketing,
+        'necessary': preferences.necessary
+      }
+    });
+  }
+});
