@@ -2,339 +2,1139 @@
 <html lang="en">
 
 <head>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-THQZH8J7');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahanadi Parisara | Digital Marketing Specialist</title>
-
- <!--   <script>
-// Initialize GTM
-(function(w,d,s,l,i){
-    w[l]=w[l]||[];
-    w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-    var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-    j.async=true;
-    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-    f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-THQZH8J7');
-</script>
-
- Cookie Banner 
-<div id="cookie-consent" class="cookie-banner">
-    <div class="cookie-content">
-        <div class="cookie-header">
-            <h3>🕸️ Cookie Preferences</h3>
-            <button id="cookie-close" class="cookie-close" aria-label="Close cookie banner">&times;</button>
-        </div>
-        <p>This website uses cookies to enhance your experience and analyze site traffic. You can choose which cookies you consent to.</p>
-        <div class="cookie-options">
-            <div class="cookie-option">
-                <input type="checkbox" id="necessary-cookies" checked disabled>
-                <label for="necessary-cookies">
-                    <span class="cookie-name">Necessary</span>
-                    <span class="cookie-description">Required for the website to function.</span>
-                </label>
-            </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="analytics-cookies" checked>
-                <label for="analytics-cookies">
-                    <span class="cookie-name">Analytics</span>
-                    <span class="cookie-description">Help us improve our website by collecting anonymous usage data.</span>
-                </label>
-            </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="marketing-cookies">
-                <label for="marketing-cookies">
-                    <span class="cookie-name">Marketing</span>
-                    <span class="cookie-description">Allow us to provide personalized content and ads.</span>
-                </label>
-            </div>
-        </div>
-        <div class="cookie-actions">
-            <button id="accept-all" class="cookie-button cookie-accept-all">Accept All</button>
-            <button id="save-preferences" class="cookie-button cookie-save">Save Preferences</button>
-        </div>
-        <div class="cookie-footer">
-            <a href="/privacy-policy" class="cookie-link">Privacy Policy</a>
-        </div>
-    </div>
-</div>
--->
-    
-    <!-- Preload Critical Assets -->
-    <link rel="preload" href="./css/main.css" as="style">
-    
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Bangers&family=Orbitron:wght@400;500;700&family=Roboto+Mono:wght@300;400;700&display=swap"
-        rel="stylesheet">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/main.css">
-
-    <!-- Intro Animation Styles -->
+    <title>Mahanadi Parisara - Interactive Resume</title>
     <style>
-        /* Initial loading overlay */
-        .intro-overlay {
+        :root {
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --accent-color: #0066cc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+        }
+
+        .nav-logo a {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo a {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .intro-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            background-color: var(--bg-color);
+            transition: background-color 1s ease;
+        }
+
+        .typewriter-text {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: 0.2rem;
+            color: transparent;
+            position: relative;
+            white-space: nowrap;
+            -webkit-text-stroke: 2px var(--accent-color);
+            /* Blue outline */
+            text-stroke: 2px var(--accent-color);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 5rem;
+            background-color: var(--accent-color);
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .content {
+            position: relative;
+            padding: 0 5%;
+            opacity: 0;
+            margin-top: 70px;
+            /* Add space for fixed navigation */
+            display: none;
+        }
+
+        section {
+            min-height: auto;
+            /* Changed from 100vh to auto */
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            transform: translateY(0);
+            /* Reset transform */
+            opacity: 1;
+            /* Make visible by default */
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            /* Reset transform */
+            opacity: 1;
+            /* Make visible by default */
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-pill {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            transform: scale(1);
+            /* Changed from 0.8 */
+            opacity: 1;
+            /* Changed from 0 */
+        }
+
+        .experience-timeline {
+            position: relative;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            /* Changed from 0 */
+            width: 2px;
+            background: var(--accent-color);
+        }
+
+        .experience-item {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            opacity: 1;
+            /* Changed from 0 */
+        }
+
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Footer styles */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            transform: translateY(0);
+            /* Reset transform */
+            opacity: 1;
+            /* Make visible by default */
+        }
+
+        /* Dark mode toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+        }
+
+        .dark-mode {
+            --text-color: #f5f5f5;
+            --bg-color: #121212;
+            --accent-color: #4d9fff;
+        }
+
+        .dark-mode .card {
+            background: #1e1e1e;
+        }
+
+        .dark-mode .theme-toggle {
+            background: #333;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .typewriter-text {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .project-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-description,
+        .project-challenges {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .dark-mode .contact-form input,
+        .dark-mode .contact-form textarea {
+            background-color: rgba(50, 50, 50, 0.8);
+            border-color: #444;
+            color: #f5f5f5;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+        }
+
+        .contact-form button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 0.5rem;
+            align-self: center;
+            width: 200px;
+        }
+
+        .contact-form button:hover {
+            background-color: #0055aa;
+            transform: translateY(-2px);
+        }
+
+        /* Social Links with Icons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            transition: stroke 0.3s;
+        }
+
+        .social-link:hover .social-icon {
+            stroke: var(--accent-color);
+        }
+
+        .dark-mode .social-icon {
+            stroke: #f5f5f5;
+        }
+
+        /* Calendar Button */
+        .calendar-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 1.5rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .calendar-button:hover {
+            transform: scale(1.1);
+            background-color: #0055aa;
+        }
+
+        .calendar-modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--color-bg-primary);
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 3000;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
-            transition: opacity 1s ease-in-out;
-        }
-
-        /* Intro name container - centered in viewport */
-        .intro-name-container {
-            position: relative;
-            text-align: center;
-        }
-
-        /* Intro name styling */
-        .intro-name {
-            font-family: 'Comic Neue', 'Orbitron', sans-serif;
-            font-size: 5rem; /* Larger size initially */
-            font-weight: 800;
-            color: var(--color-text-primary);
-            text-shadow: 0 0 20px rgba(67, 97, 238, 0.6);
-            position: relative;
-            white-space: nowrap;
-        }
-
-        /* Typewriter effect for intro */
-        .intro-name.typewriter {
-            overflow: hidden;
-            border-right: 0.15em solid var(--color-accent-secondary);
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: 0.15em;
-            animation: 
-                typing 3.5s steps(30, end),
-                blink-caret 0.75s step-end infinite;
-        }
-
-        /* Typewriter animations */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--color-accent-secondary) }
-        }
-
-        /* Hide all content initially except the intro */
-        body.loading {
-            overflow: hidden; /* Prevent scrolling during intro */
-        }
-
-        body.loading .spider-container,
-        body.loading .spider-nav,
-        body.loading .comic-dots {
             opacity: 0;
-            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s;
         }
 
-        /* Make content visible after animation */
-        body.loaded .spider-container,
-        body.loaded .spider-nav,
-        body.loaded .comic-dots {
+        .calendar-modal.active {
             opacity: 1;
-            visibility: visible;
-            transition: opacity 1s ease;
+            pointer-events: auto;
         }
 
-        /* Add staggered reveal for content */
-        .fade-in-stagger {
-            opacity: 0;
-            transform: translateY(20px);
+        .calendar-content {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            height: 90%;
+            max-height: 700px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
         }
 
-        body.loaded .fade-in-stagger {
-            animation: fadeInUp 0.6s ease forwards;
+        .calendar-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            #profile div {
+                width: 150px;
+                height: 150px;
+            }
+
+            #profile h1 {
+                font-size: 2rem;
+            }
+
+            #profile p {
+                font-size: 1rem;
             }
         }
 
-        .fade-in-stagger:nth-child(1) { animation-delay: 0.2s; }
-        .fade-in-stagger:nth-child(2) { animation-delay: 0.4s; }
-        .fade-in-stagger:nth-child(3) { animation-delay: 0.6s; }
-        .fade-in-stagger:nth-child(4) { animation-delay: 0.8s; }
-
-        /* Optional: Add a slight glowing pulse during the intro */
-        .intro-name-container::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, 
-                rgba(67, 97, 238, 0.2) 0%, 
-                rgba(72, 191, 227, 0.1) 40%, 
-                transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
-            animation: pulse 2s ease-in-out infinite alternate;
+        @media (max-width: 480px) {
+            #profile div {
+                width: 120px;
+                height: 120px;
+            }
         }
 
-        @keyframes pulse {
-            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
-            to { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        #profile div:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.2);
         }
 
-        /* Adjust spacing between sections */
-        .home-section {
-            margin-bottom: 2rem; /* Reduce bottom margin */
+        .resume-download-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 102, 204, 0.2);
         }
 
-        .about-section {
-            margin-top: 2rem; /* Reduce top margin */
+        .resume-download-btn:hover {
+            background-color: #0055aa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 102, 204, 0.3);
+        }
+
+        .dark-mode .resume-download-btn {
+            background-color: var(--accent-color);
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <!-- Comic Dots Overlay -->
-    <div class="comic-dots"></div>
-    
-    <!-- Navigation -->
-    <nav class="spider-nav">
-        <div class="nav-logo"><a href="/">MP</a></div>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-logo"><a href="index.html">MP</a></div>
         <ul class="nav-menu">
-            <li><a href="/" class="nav-link">Home</a></li>
-            <li><a href="/html/skills" class="nav-link">Skills</a></li>
-            <li><a href="/html/clients" class="nav-link">Clients</a></li>
-            <li><a href="/html/projects" class="nav-link">Projects</a></li>
-            <li><a href="/html/contact" class="nav-link">Contact</a></li>
+            <li>
+                <div class="nav-logo">
+                    <a href="pluto.html" class="nav-link">
+                        <img src="/assets/pluto-icon.svg" alt="Pluto"
+                            style="height: 30px; width: 30px; margin-right: 3px; vertical-align: middle;"
+                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'40\' fill=\'%230066cc\'/%3E%3C/svg%3E'; this.onerror=null;">
+                        <span style="font-weight: 700; font-size: 1.5rem; color: var(--accent-color);">Pluto</span>
+                    </a>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <!-- Main Content -->
-    <main class="spider-container" role="main">
-        <section class="home-section">
-            <div class="profile-container">
-                <div class="profile-image-wrapper float fade-in-stagger">
-                    <img src="./assets/profile.jpg" alt="Mahanadi Parisara" class="profile-image">
+    <!-- Intro animation container -->
+    <div class="intro-container">
+        <h1 class="typewriter-text" id="name"></h1>
+        <span class="cursor"></span>
+    </div>
+
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" id="themeToggle">
+        🌙
+    </button>
+
+    <!-- Main content -->
+    <div class="content">
+
+        <section id="profile">
+            <div
+                style="display: flex; flex-direction: column; align-items: center; margin-bottom: 30px; margin-top: 30px;">
+                <!-- Profile photo with circular crop and subtle shadow -->
+                <div
+                    style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <img src="/assets/profile.jpg" alt="Mahanadi Parisara"
+                        style="width: 100%; height: 100%; object-fit: cover;"
+                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'180\' height=\'180\' viewBox=\'0 0 180 180\'%3E%3Crect width=\'180\' height=\'180\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'90\' y=\'90\' font-family=\'Arial\' font-size=\'18\' text-anchor=\'middle\' dominant-baseline=\'middle\' fill=\'%23999\'%3EPhoto%3C/text%3E%3C/svg%3E'">
                 </div>
-                <div class="hero-content">
-                    <h1 class="hero-title fade-in-stagger">
-                        <span class="typewriter">Mahanadi Parisara</span>
-                    </h1>
-                    <p class="hero-subtitle fade-in-stagger">Digital Marketing Technologist</p>
-                    <div class="hero-description comic-effect fade-in-stagger">
-                        <p>Transforming data into digital strategies with precision and innovation.</p>
+
+                <!-- Your name in a style that matches the website -->
+                <h1 style="font-size: 2.5rem; font-weight: 600; color: var(--accent-color); margin-bottom: 10px;">
+                    Mahanadi Parisara</h1>
+
+                <!-- Optional: You can add a small subtitle/role description here -->
+                <p style="font-size: 1.2rem; color: var(--text-color); margin-bottom: 20px;">Digital Marketing &
+                    Analytics Specialist</p>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="card">
+                <p>Digital Marketing expert specializing in Google Ads, Analytics, and Tag Manager, with a strong
+                    aptitude for technical problem-solving. I ensure precise data and optimize performance for
+                    high-value clients, drawing on a background in complex system support. My curiosity extends deeply
+                    into technology and mobile platforms (Android/iOS), driving my interest in the technical build and
+                    product strategy behind effective digital experiences. I'm always ready to tackle the next complex
+                    challenge.</p>
+            </div>
+        </section>
+
+
+        <!-- Skills section -->
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="card">
+                <div class="skills-container">
+                    <span class="skill-pill">HTML</span>
+                    <span class="skill-pill">CSS</span>
+                    <span class="skill-pill">JavaScript</span>
+                    <span class="skill-pill">React</span>
+                    <span class="skill-pill">Node.js</span>
+                    <span class="skill-pill">UI/UX Design</span>
+                    <span class="skill-pill">Responsive Design</span>
+                    <span class="skill-pill">WordPress</span>
+                    <span class="skill-pill">Google Ads & Conversion Tracking</span>
+                    <span class="skill-pill">Google Analytics 4 (GA4)</span>
+                    <span class="skill-pill">Google Tag Manager</span>
+                    <span class="skill-pill">Flutter & Dart</span>
+                    <span class="skill-pill">Google Cloud & Firebase Console</span>
+                    <span class="skill-pill">AI Tools & Integration</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience section -->
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="card">
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <h3>Senior Process Executive</h3>
+                        <p class="company">Cognizant Technology Solutions | May 2023 - Present</p></br>
+                        <p>Digital Marketing Specialist – Cognizant (Supporting Google LCS Process)</p>
+                        <p>Specialized in Google Ads, Google Analytics, and Google Tag Manager, providing strategic
+                            support to Google's Large Customer Sales (LCS) clients. Collaborated with high-value
+                            advertisers to implement, audit, and optimize conversion tracking systems, ensuring data
+                            accuracy and enabling actionable business insights.</p> </br>
+
+                        <p>Demonstrated a hands-on, analytical approach to digital platforms, thriving at the
+                            intersection of marketing strategy, technology, and measurable impact. Worked
+                            cross-functionally with analysts and developers to deliver seamless tracking and reporting
+                            solutions.</p></br>
+
+                        <p>Additionally, completed Cognizant's internal upskilling program in HTML, CSS, JavaScript,
+                            Node.js, React.js, and REST APIs, enhancing technical proficiency and broadening digital
+                            capabilities.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Implementation Consultant</h3>
+                        <p class="company">Regalix India Pvt Ltd. (A Marketstar Company) | Jan 2023 - May 2023</p></br>
+                        <p>Digital Marketing Specialist with deep expertise in Google Ads, Google Analytics, and Google
+                            Tag Manager</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Associate - CEC Operations</h3>
+                        <p class="company">Tesco Bengaluru | Jun 2022 - Jan 2023</p></br>
+                        <p>Provided remote support to Tesco store employees across the UK and Ireland, addressing issues
+                            related to product listings and point-of-sale systems (Tills). Diagnosed and resolved
+                            technical problems over the phone to ensure minimal disruption to store operations and a
+                            seamless shopping experience for customers.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Operations Representative</h3>
+                        <p class="company">Concentrix Daksh India Pvt Ltd. | Jan 2021 - Jun 2022</p></br>
+                        <p>Delivered phone-based customer support for OnePlus TV products, assisting customers with
+                            troubleshooting technical issues, answering product-related queries, and coordinating
+                            installation or repair requests through vendor partners to ensure timely resolution and
+                            customer satisfaction.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about-section fade-in-stagger">
-    <div class="section-header">
-    </div>
-    <div class="about-content comic-effect">
-        <h3 class="about-title">Digital Marketing Specialist | Data-Driven Strategy | Product-Minded Professional</h3>
-        <div class="about-description">
-            <p>I'm a Digital Marketing Specialist with deep expertise in Google Ads, Google Analytics, and Google Tag Manager, currently supporting Google's Large Customer Sales (LCS) process at Cognizant. I work closely with high-value clients to implement, audit, and optimize conversion tracking systems — ensuring data accuracy and helping drive meaningful business insights.</p>
-            
-            <p>With a hands-on approach to digital platforms and a strong analytical mindset, I thrive at the intersection of strategy, technology, and measurable impact. I also bring collaborative experience from working alongside cross-functional teams of analysts and developers.</p>
-            
-            <p>Outside of my client-facing role, I've independently built a web app and mobile app, giving me firsthand experience in product development, iteration, and user experience. This has sparked a deeper interest in product thinking — not just in optimizing performance, but in building solutions that scale and evolve. I'm constantly learning, experimenting, and working toward contributing to product strategy in the future.</p>
-        </div>
-    </div>
-</section>
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-cards">
+                <div class="card">
+                    <h3>Interactive Portfolio</h3>
+                    <p>A personal portfolio website with advanced animations and interactive elements.</p>
+                </div>
+                <div class="card">
+                    <h3 class="project-name"> Pluto <h5>(Previously known as Finance Manager)</h5>
+                    </h3>
+                    <p>A personal finance tracker app designed for multi-device use with a privacy-first approach. The
+                        app enables manual data entry, two-way sync with Google Sheets, and provides debt payoff
+                        suggestions using Avalanche and Snowball methods.</p></br>
 
-        <section class="quick-links">
-            <div class="link-grid">
-                <a href="/html/skills" class="quick-link fade-in-stagger">
-                    <span class="link-icon">🚀</span>
-                    <span class="link-text">My Skills</span>
-                </a>
-                <a href="/html/clients" class="quick-link fade-in-stagger">
-                    <span class="link-icon">🌐</span>
-                    <span class="link-text">Clients</span>
-                </a>
-                <a href="/html/projects" class="quick-link fade-in-stagger">
-                    <span class="link-icon">💡</span>
-                    <span class="link-text">Projects</span>
-                </a>
-                <a href="/html/contact" class="quick-link fade-in-stagger">
-                    <span class="link-icon">📧</span>
-                    <span class="link-text">Contact Me</span>
-                </a>
+                    <p class="project-challenges">
+                        <strong>Technical Challenges:</strong> Implemented complex sync logic, resolved Google Sign-In
+                        integration issues, optimized app performance, and developed a robust data model to prevent
+                        conflicts.
+                    </p>
+
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="pluto.html" style="
+        background: rgba(124, 123, 123, 0.2);
+        color: var(--accent-color);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+    ">Learn More</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SmartReports</h3>
+                    <p>Collaborated with a teammate to design and deploy an automated reporting system that transformed
+                        how
+                        team performance was tracked. The solution replaced years of manual data compilation,
+                        significantly
+                        reducing administrative effort while improving data accuracy and reporting efficiency.</p>
+                </div>
             </div>
         </section>
-    </main>
 
-    <!-- Background Effects -->
-    <div id="background-layer"></div>
-    <div id="particles-js" class="particle-background"></div>
+        <!-- Contact section with EmailJS integration (fixed duplicate alert) -->
+        <section id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="social-links">
+                <!-- Email link -->
+                <a href="mailto:mahanadhip@gmail.com" class="social-link" title="Email me">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                        </path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="/js/main.js"></script>
-   <!-- <script src="/js/consent.js"></script>-->
-    <script src="/js/intro-animation.js"></script>
+                <!-- LinkedIn link -->
+                <a href="https://linkedin.com/in/mahanadhi/" target="_blank" class="social-link"
+                    title="Connect on LinkedIn">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                        </path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
 
-<!-- Consent mode 
-<div id="cookie-consent" class="cookie-banner">
-    <div class="cookie-content">
-        <div class="cookie-header">
-            <h3>🕸️ Cookie Preferences</h3>
-            <button id="cookie-close" class="cookie-close" aria-label="Close cookie banner">&times;</button>
-        </div>
-        <p>This website uses cookies to enhance your experience and analyze site traffic. You can choose which cookies you consent to.</p>
-        <div class="cookie-options">
-            <div class="cookie-option">
-                <input type="checkbox" id="necessary-cookies" checked disabled>
-                <label for="necessary-cookies">
-                    <span class="cookie-name">Necessary</span>
-                    <span class="cookie-description">Required for the website to function.</span>
-                </label>
+                <!-- Resume download link (matching social style) -->
+                <a href="/assets/Mahanadi_Resume.pdf" download class="social-link" title="Download my Resume">
+    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" 
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+        <line x1="7" y1="8" x2="17" y2="8"></line>
+        <line x1="7" y1="12" x2="17" y2="12"></line>
+        <line x1="7" y1="16" x2="12" y2="16"></line>
+    </svg>
+</a>
             </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="analytics-cookies" checked>
-                <label for="analytics-cookies">
-                    <span class="cookie-name">Analytics</span>
-                    <span class="cookie-description">Help us improve our website by collecting anonymous usage data.</span>
-                </label>
-            </div>
-            <div class="cookie-option">
-                <input type="checkbox" id="marketing-cookies">
-                <label for="marketing-cookies">
-                    <span class="cookie-name">Marketing</span>
-                    <span class="cookie-description">Allow us to provide personalized content and ads.</span>
-                </label>
-            </div>
-        </div>
-        <div class="cookie-actions">
-            <button id="accept-all" class="cookie-button cookie-accept-all">Accept All</button>
-            <button id="save-preferences" class="cookie-button cookie-save">Save Preferences</button>
-        </div>
-        <div class="cookie-footer">
-            <a href="/privacy-policy" class="cookie-link">Privacy Policy</a>
+            </section>
+
+            <form class="contact-form" id="contact-form">
+                <label for="name" id="name-label">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <label for="email" id="email-label">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <label for="subject" id="subject-label">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+                <label for="message" id="message-label">Your Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Mahanadi Parisara. All rights reserved.</p>
+    </footer>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="calendar-modal" id="calendarModal">
+        <div class="calendar-content">
+            <div class="calendar-close" id="calendarClose">×</div>
+            <iframe
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2PrInWpWnFVLWvxUVR_Dr_mUK1D_FY_gHhG7MLaPBpHwPn10_IouKmbTqcnPeZwIKxzUQOG9y-?gv=true"
+                style="border: 0" width="100%" height="100%" frameborder="0"></iframe>
         </div>
     </div>
-</div>
--->
 
+    <!-- Calendar Button -->
+    <div class="calendar-button" id="calendarBtn">
+        📅
+    </div>
+
+    <!-- Add EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Load GSAP from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Your name for the typewriter effect
+        const yourName = "MAHANADI PARISARA";
+        const nameElement = document.getElementById('name');
+        const introContainer = document.querySelector('.intro-container');
+        const content = document.querySelector('.content');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Calendar Modal
+        const calendarBtn = document.getElementById('calendarBtn');
+        const calendarModal = document.getElementById('calendarModal');
+        const calendarClose = document.getElementById('calendarClose');
+
+        calendarBtn.addEventListener('click', () => {
+            calendarModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        calendarClose.addEventListener('click', () => {
+            calendarModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal if clicking outside content
+        calendarModal.addEventListener('click', (e) => {
+            if (e.target === calendarModal) {
+                calendarModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // EmailJS Implementation
+        (function () {
+            // Initialize EmailJS with your user ID
+            emailjs.init("iOjr3dwBPBnhBOiGn");
+
+            // Get the form element
+            const form = document.getElementById('contact-form');
+
+            // Remove any existing event listeners (to prevent duplicates)
+            const newForm = form.cloneNode(true);
+            form.parentNode.replaceChild(newForm, form);
+
+            // Add submit event listener to the new form
+            newForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Show loading state
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                // Prepare template parameters
+                const templateParams = {
+                    name: this.name.value,
+                    email: this.email.value,
+                    subject: this.subject.value,
+                    message: this.message.value
+                };
+
+                // Send the email using EmailJS
+                emailjs.send('service_yr5fl2q', 'template_a8h4rjw', templateParams)
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        alert('Thank you for your message! I will get back to you soon.');
+                        newForm.reset();
+                        submitBtn.textContent = originalBtnText;
+                        submitBtn.disabled = false;
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                        alert('Oops! Something went wrong sending your message. Please try again or contact me directly at mahanadhip@gmail.com');
+                        submitBtn.textContent = originalBtnText;
+                        submitBtn.disabled = false;
+                    });
+            });
+        })();
+
+        // Typewriter animation
+        function typeWriter() {
+            let i = 0;
+            const speed = 150; // typing speed in milliseconds
+
+            function type() {
+                if (i < yourName.length) {
+                    nameElement.textContent += yourName.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    // When typing finishes, start the zoom transition
+                    setTimeout(startZoomTransition, 800);
+                }
+            }
+
+            type();
+        }
+
+        // Zoom transition animation - UPDATED
+        function startZoomTransition() {
+            const tl = gsap.timeline();
+
+            // First, make the content visible but with opacity 0
+            tl.set('.content', {
+                opacity: 0,
+                display: 'block'
+            }, 0);
+
+            // Make letters bigger and more transparent, revealing content behind
+            tl.to('.typewriter-text', {
+                duration: 2,
+                scale: 20,
+                opacity: 0,
+                ease: "power3.inOut"
+            }, 0);
+
+            // Hide the cursor completely (changed from just opacity to display:none)
+            tl.to('.cursor', {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: function () {
+                    document.querySelector('.cursor').style.display = 'none';
+                }
+            }, 0);
+
+            // Change the intro container background to transparent
+            tl.to('.intro-container', {
+                backgroundColor: 'transparent',
+                duration: 1
+            }, 0.5);
+
+            // Fade in the content
+            tl.to('.content', {
+                opacity: 1,
+                duration: 1.5,
+                ease: "power2.inOut"
+            }, 1);
+
+            // After content is visible, remove the intro container
+            tl.to('.intro-container', {
+                display: 'none'
+            }, 2.5);
+
+            // Show theme toggle
+            tl.to('.theme-toggle', {
+                opacity: 1,
+                duration: 0.5
+            }, 1.5);
+
+            // Initialize content animations after the transition completes
+            tl.call(initContentAnimations, [], 2.5);
+        }
+
+        // Make sure this function runs after the zoom transition
+        function initContentAnimations() {
+            // Reset any section opacities or display issues
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'flex';
+                section.style.opacity = 1;
+            });
+
+            // Fix for cards not showing
+            document.querySelectorAll('.card').forEach(card => {
+                card.style.opacity = 1;
+                card.style.transform = 'translateY(0)';
+            });
+
+            // Animate section titles
+            gsap.utils.toArray('.section-title').forEach(title => {
+                gsap.to(title, {
+                    scrollTrigger: {
+                        trigger: title,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    duration: 0.8,
+                    opacity: 1,
+                    y: 0,
+                    ease: "power3.out"
+                });
+            });
+
+            // Animate cards
+            gsap.utils.toArray('.card').forEach(card => {
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    duration: 0.8,
+                    opacity: 1,
+                    y: 0,
+                    ease: "power3.out",
+                    delay: 0.2
+                });
+            });
+
+            // Animate skill pills
+            gsap.utils.toArray('.skill-pill').forEach((pill, index) => {
+                gsap.to(pill, {
+                    scrollTrigger: {
+                        trigger: pill,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    },
+                    duration: 0.5,
+                    opacity: 1,
+                    scale: 1,
+                    ease: "back.out(1.7)",
+                    delay: 0.1 * index
+                });
+            });
+
+            // Animate timeline line
+            gsap.to('.experience-timeline::before', {
+                scrollTrigger: {
+                    trigger: '.experience-timeline',
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    scrub: true
+                },
+                height: "100%",
+                duration: 2
+            });
+
+            // Animate timeline dots
+            gsap.utils.toArray('.experience-item::before').forEach(dot => {
+                gsap.to(dot, {
+                    scrollTrigger: {
+                        trigger: dot,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 1,
+                    duration: 0.5
+                });
+            });
+
+            // Animate social links
+            gsap.utils.toArray('.social-link').forEach((link, index) => {
+                gsap.from(link, {
+                    scrollTrigger: {
+                        trigger: link,
+                        start: "top 90%"
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    delay: 0.2 * index
+                });
+            });
+
+            // Animate contact form elements
+            gsap.utils.toArray('.contact-form > *').forEach((element, index) => {
+                gsap.from(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 90%"
+                    },
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.1 * index
+                });
+            });
+
+            // Animate footer
+            gsap.to('footer', {
+                scrollTrigger: {
+                    trigger: 'footer',
+                    start: "top 90%"
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8
+            });
+
+            // Force ScrollTrigger to refresh
+            ScrollTrigger.refresh();
+        }
+
+        function initProfileAnimations() {
+            // Animate profile photo
+            gsap.from('#profile img', {
+                scrollTrigger: {
+                    trigger: '#profile',
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                duration: 1,
+                opacity: 0,
+                y: 30,
+                scale: 0.8,
+                ease: "back.out(1.7)"
+            });
+
+            // Animate profile name and subtitle with a slight delay
+            gsap.from('#profile h1, #profile p', {
+                scrollTrigger: {
+                    trigger: '#profile',
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                duration: 0.8,
+                opacity: 0,
+                y: 20,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.3
+            });
+        }
+
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+
+        window.addEventListener('load', () => {
+            // Delay the typewriter animation slightly
+            setTimeout(typeWriter, 500);
+
+            // Initialize profile animations
+            initProfileAnimations();
+
+            // Make sure the content is properly displayed after animation
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'flex';
+            });
+        });
+    </script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THQZH8J7" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 </body>
 
 </html>
