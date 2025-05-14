@@ -16,7 +16,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahanadi Parisara - Interactive Resume</title>
+    <title>Mahanadhi Parisara - Interactive Resume</title>
     <style>
         :root {
             --text-color: #333;
@@ -638,40 +638,65 @@
         }
 
         /* Social Links with Icons */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
+        /* Enhanced Social Links Hover Effect */
         .social-link {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            font-size: 1.1rem;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            color: #333;
+            transition: all 0.3s ease;
             text-decoration: none;
-            color: var(--text-color);
-            transition: transform 0.3s, color 0.3s;
         }
 
         .social-link:hover {
-            color: var(--accent-color);
             transform: translateY(-3px);
+            color: white;
         }
 
-        .social-icon {
-            width: 32px;
-            height: 32px;
+        /* Custom colors for each social link */
+        .social-link.email:hover {
+            background: #EA4335;
+            /* Gmail/Email color */
+            color: white;
+        }
+
+        .social-link.linkedin:hover {
+            background: #0077B5;
+            /* LinkedIn color */
+            color: white;
+        }
+
+        .social-link.resume:hover {
+            background: #0066cc;
+            /* Match your accent color */
+            color: white;
+        }
+
+        .dark-mode .social-link {
+            background: #333;
+            color: #f0f0f0;
+        }
+
+        /* Fix for icon sizing and centering */
+        .social-link .social-icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
             transition: stroke 0.3s;
         }
 
-        .social-link:hover .social-icon {
-            stroke: var(--accent-color);
-        }
-
-        .dark-mode .social-icon {
-            stroke: #f5f5f5;
+        /* Remove the gap settings from the original styling */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            /* Reduced from 2rem for better mobile spacing */
+            margin: 2rem 0;
         }
 
         /* Calendar Button and Modal - Complete CSS */
@@ -1195,21 +1220,6 @@
             transform: translateY(-3px);
         }
 
-        .share-button.twitter:hover {
-            background: #1DA1F2;
-            color: white;
-        }
-
-        .share-button.linkedin:hover {
-            background: #0077B5;
-            color: white;
-        }
-
-        .share-button.facebook:hover {
-            background: #4267B2;
-            color: white;
-        }
-
         .dark-mode .share-button {
             background: #333;
             color: #f0f0f0;
@@ -1310,6 +1320,169 @@
         .dark-mode .scroll-progress-bar {
             background-color: var(--accent-color);
         }
+
+        /* Improve responsive type sizing */
+        @media (max-width: 480px) {
+            .typewriter-text {
+                font-size: 2rem !important;
+                /* Much smaller on mobile */
+            }
+
+            .cursor {
+                height: 2rem;
+                /* Match the new font size */
+            }
+
+            #profile h1 {
+                font-size: 1.8rem !important;
+                word-wrap: break-word;
+            }
+
+            .hero-title {
+                font-size: 2rem !important;
+            }
+        }
+
+        /* For tablets */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .typewriter-text {
+                font-size: 3rem !important;
+            }
+
+            .cursor {
+                height: 3rem;
+            }
+        }
+
+        /* Better theme switcher positioning */
+        @media (max-width: 768px) {
+            .theme-toggle {
+                /* Move to bottom left instead of top right on mobile */
+                top: auto;
+                bottom: 20px;
+                left: 20px;
+                right: auto;
+                z-index: 1001;
+                /* Ensure it's above other elements */
+            }
+
+            /* Fix navigation spacing */
+            .nav-logo a {
+                font-size: 1.2rem;
+                /* Smaller logo text on mobile */
+            }
+
+            /* Better spacing for icons in navigation */
+            .nav-menu {
+                gap: 15px;
+            }
+        }
+
+        /* Better padding on mobile */
+        @media (max-width: 480px) {
+            .content {
+                padding: 0 15px;
+                /* Slightly more breathing room */
+            }
+
+            .card {
+                padding: 1.2rem;
+                /* Smaller card padding */
+            }
+
+            /* Smaller gap between skill pills */
+            .skills-container {
+                gap: 0.5rem;
+            }
+
+            .skill-pill {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            /* Fix intro animation container for smaller screens */
+            .intro-container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Prevent horizontal overflow on the entire page */
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* Make sure no content creates horizontal scrolling */
+        .content,
+        header,
+        section,
+        .card,
+        .feature-list,
+        .section-title {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Water Ripple Theme Transition Effect */
+
+        /* Theme Transition Container */
+        .theme-transition-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+            overflow: hidden;
+        }
+
+        /* Theme Ripple Elements */
+        .theme-ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 0.8;
+            background-color: var(--ripple-color, #121212);
+            will-change: transform, opacity;
+        }
+
+        /* Dark mode theme ripple color */
+        .theme-transition-dark .theme-ripple {
+            --ripple-color: #121212;
+            /* Dark mode background color */
+        }
+
+        /* Light mode theme ripple color */
+        .theme-transition-light .theme-ripple {
+            --ripple-color: #f5f5f5;
+            /* Light mode background color */
+        }
+
+        /* Add transition class for smoother body color changes */
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Ensure other elements transition smoothly */
+        nav,
+        .card,
+        .section-title,
+        p,
+        h1,
+        h2,
+        h3,
+        footer,
+        .theme-toggle,
+        .nav-menu,
+        .skill-pill,
+        .review-card,
+        .feature-list li,
+        .social-link,
+        .download-button {
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        }
     </style>
 </head>
 
@@ -1341,7 +1514,7 @@
         <ul class="nav-menu">
             <li>
                 <div class="nav-logo">
-                    <a href="pluto.html" class="nav-link">
+                    <a href="/pluto/" class="nav-link">
                         <img src="/assets/pluto-icon.svg" alt="Pluto"
                             style="height: 30px; width: 30px; margin-right: 3px; vertical-align: middle;"
                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'40\' fill=\'%230066cc\'/%3E%3C/svg%3E'; this.onerror=null;">
@@ -1379,14 +1552,14 @@
                 <!-- Profile photo with circular crop and subtle shadow -->
                 <div
                     style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                    <img src="/assets/profile.jpg" alt="Mahanadi Parisara"
+                    <img src="/assets/profile.jpg" alt="Mahanadhi Parisara"
                         style="width: 100%; height: 100%; object-fit: cover;"
                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'180\' height=\'180\' viewBox=\'0 0 180 180\'%3E%3Crect width=\'180\' height=\'180\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'90\' y=\'90\' font-family=\'Arial\' font-size=\'18\' text-anchor=\'middle\' dominant-baseline=\'middle\' fill=\'%23999\'%3EPhoto%3C/text%3E%3C/svg%3E'">
                 </div>
 
                 <!-- Your name in a style that matches the website -->
                 <h1 style="font-size: 2.5rem; font-weight: 600; color: var(--accent-color); margin-bottom: 10px;">
-                    Mahanadi Parisara</h1>
+                    Mahanadhi Parisara</h1>
 
                 <!-- Optional: You can add a small subtitle/role description here -->
                 <p style="font-size: 1.2rem; color: var(--text-color); margin-bottom: 20px;">Digital Marketing &
@@ -1527,34 +1700,33 @@
         <!-- Contact section with EmailJS integration (fixed duplicate alert) -->
         <section id="contact">
             <h2 class="section-title">Get In Touch</h2>
+            <!-- Updated Social Links Section -->
             <div class="social-links">
                 <!-- Email link -->
-                <a href="mailto:mahanadhip@gmail.com" class="social-link" title="Email me">
-                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                <a href="mailto:mahanadhip@gmail.com" class="social-link email" title="Email me">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                        </path>
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                 </a>
 
                 <!-- LinkedIn link -->
-                <a href="https://linkedin.com/in/mahanadhi/" target="_blank" class="social-link"
+                <a href="https://linkedin.com/in/mahanadhi/" target="_blank" class="social-link linkedin"
                     title="Connect on LinkedIn">
-                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                        </path>
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
 
-                <!-- Resume download link (matching social style) -->
-                <a href="/assets/Mahanadi_Resume.pdf" download class="social-link" title="Download my Resume">
-                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                <!-- Resume download link -->
+                <a href="/assets/Mahanadi_Resume.pdf" download class="social-link resume" title="Download my Resume">
+                    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
@@ -1563,44 +1735,6 @@
                         <line x1="7" y1="16" x2="12" y2="16"></line>
                     </svg>
                 </a>
-            </div>
-
-            <!-- Social Sharing -->
-            <div class="social-sharing">
-                <h3>Share My Profile</h3>
-                <div class="share-buttons">
-                    <!-- Twitter/X -->
-                    <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Check out Mahanadi's portfolio!"
-                        target="_blank" class="share-button twitter">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                            </path>
-                        </svg>
-                    </a>
-
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yourwebsite.com&title=Mahanadi Parisara - Portfolio&summary=Check out this impressive portfolio!"
-                        target="_blank" class="share-button linkedin">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                            </path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank"
-                        class="share-button facebook">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg>
-                    </a>
-                </div>
             </div>
         </section>
 
@@ -1624,7 +1758,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Mahanadi Parisara. All rights reserved.</p>
+        <p>© 2025 Mahanadhi Parisara. All rights reserved.</p>
     </footer>
     </div>
 
@@ -1664,7 +1798,7 @@
         gsap.registerPlugin(ScrollTrigger);
 
         // Your name for the typewriter effect
-        const yourName = "MAHANADI PARISARA";
+        const yourName = "MAHANADHI PARISARA";
         const nameElement = document.getElementById('name');
         const introContainer = document.querySelector('.intro-container');
         const content = document.querySelector('.content');
@@ -2006,7 +2140,6 @@
             });
 
             // Animate skill pills
-            // Animate skill pills
             gsap.utils.toArray('.skill-pill').forEach((pill, index) => {
                 gsap.to(pill, {
                     scrollTrigger: {
@@ -2136,6 +2269,28 @@
             });
         }
 
+        // Ensure proper mobile scaling
+        function adjustMobileLayout() {
+            const isMobile = window.innerWidth <= 480;
+
+            if (isMobile) {
+                // Scale down typewriter text on small screens
+                const typewriterText = document.querySelector('.typewriter-text');
+                if (typewriterText) {
+                    typewriterText.style.fontSize = '2rem';
+                }
+
+                // Adjust other elements as needed
+                document.querySelectorAll('.section-title').forEach(title => {
+                    title.style.fontSize = '1.8rem';
+                });
+            }
+        }
+
+        // Run on page load and resize
+        window.addEventListener('load', adjustMobileLayout);
+        window.addEventListener('resize', adjustMobileLayout);
+
         // Function to initialize all animations
         function initAllAnimations() {
             // Existing animations
@@ -2149,10 +2304,135 @@
             initParallaxEffects();
         }
 
-        // Theme toggle functionality
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        // Water Ripple Theme Transition JavaScript
+
+        /**
+         * Creates a water-like ripple animation for theme switching
+         */
+        function setupWaterRippleThemeAnimation() {
+            const themeToggle = document.getElementById('themeToggle');
+
+            // Create transition container if it doesn't exist
+            if (!document.querySelector('.theme-transition-container')) {
+                const container = document.createElement('div');
+                container.className = 'theme-transition-container';
+                document.body.appendChild(container);
+            }
+
+            const container = document.querySelector('.theme-transition-container');
+
+            // Remove existing event listeners to prevent duplicates
+            const newThemeToggle = themeToggle.cloneNode(true);
+            themeToggle.parentNode.replaceChild(newThemeToggle, themeToggle);
+
+            // Add new event listener to the cloned button
+            newThemeToggle.addEventListener('click', function (e) {
+                // Determine if we're switching to dark or light mode
+                const isDarkMode = !document.body.classList.contains('dark-mode');
+
+                // Clear previous ripples
+                container.innerHTML = '';
+
+                // Set container class for proper coloring
+                container.className = `theme-transition-container theme-transition-${isDarkMode ? 'dark' : 'light'}`;
+
+                // Get the button position for ripple origin
+                const rect = newThemeToggle.getBoundingClientRect();
+                const originX = rect.left + rect.width / 2;
+                const originY = rect.top + rect.height / 2;
+
+                // Create multiple ripples with varying sizes and speeds
+                createWaterRipples(container, originX, originY, 7, isDarkMode);
+
+                // After animation has proceeded far enough, change the theme
+                setTimeout(() => {
+                    document.body.classList.toggle('dark-mode');
+                    newThemeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+                }, 300);
+            });
+        }
+
+        /**
+         * Creates multiple water-like ripples
+         */
+        function createWaterRipples(container, originX, originY, count, isDarkMode) {
+            // Calculate screen dimensions for proper scaling
+            const maxDimension = Math.max(
+                window.innerWidth,
+                window.innerHeight,
+                // Calculate distance to corners
+                Math.sqrt(originX * originX + originY * originY),
+                Math.sqrt((window.innerWidth - originX) * (window.innerWidth - originX) + originY * originY),
+                Math.sqrt(originX * originX + (window.innerHeight - originY) * (window.innerHeight - originY)),
+                Math.sqrt((window.innerWidth - originX) * (window.innerWidth - originX) + (window.innerHeight - originY) * (window.innerHeight - originY))
+            );
+
+            // Create multiple ripples
+            for (let i = 0; i < count; i++) {
+                const ripple = document.createElement('div');
+                ripple.className = 'theme-ripple';
+
+                // Set ripple position
+                ripple.style.left = originX + 'px';
+                ripple.style.top = originY + 'px';
+
+                // Randomize size slightly for organic feel
+                const baseSize = maxDimension * 2.2; // Make sure ripples are large enough to cover screen
+                const variation = 0.1; // 10% size variation
+                const size = baseSize * (1 - variation / 2 + Math.random() * variation);
+
+                // Initial size needs to be a small value
+                const initialSize = 10 + Math.random() * 20;
+                ripple.style.width = initialSize + 'px';
+                ripple.style.height = initialSize + 'px';
+
+                // Center the ripple on its position
+                ripple.style.marginLeft = -(initialSize / 2) + 'px';
+                ripple.style.marginTop = -(initialSize / 2) + 'px';
+
+                // Add ripple to container
+                container.appendChild(ripple);
+
+                // Animate the ripple with varying speeds
+                const delay = i * 60; // Stagger the ripples
+                const duration = 1200 + Math.random() * 200; // Slightly randomize duration
+
+                // Start the animation after a small delay
+                setTimeout(() => {
+                    ripple.style.transition = `transform ${duration}ms cubic-bezier(0.1, 0.4, 0.3, 1), opacity ${duration * 0.8}ms ease-out`;
+
+                    // Scale to cover screen
+                    const scaleFactor = size / initialSize;
+                    ripple.style.transform = `scale(${scaleFactor})`;
+
+                    // Fade out towards the end of animation
+                    setTimeout(() => {
+                        ripple.style.opacity = '0';
+                    }, duration * 0.7);
+
+                    // Remove ripple after animation
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, duration + 100);
+                }, delay);
+            }
+        }
+
+        // Initialize the theme animation when the document is ready
+        document.addEventListener('DOMContentLoaded', setupWaterRippleThemeAnimation);
+
+        // If document is already loaded, initialize immediately
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setupWaterRippleThemeAnimation();
+        }
+
+        // Re-initialize on window resize
+        window.addEventListener('resize', () => {
+            // Debounce the resize event
+            if (window.themeResizeTimer) {
+                clearTimeout(window.themeResizeTimer);
+            }
+            window.themeResizeTimer = setTimeout(setupWaterRippleThemeAnimation, 250);
         });
 
         window.addEventListener('load', () => {
@@ -2177,6 +2457,84 @@
                 initAllAnimations();
             }
         });
+
+        // Enhanced Social Links Interactions
+        function enhanceSocialLinks() {
+            // Get all social links
+            const socialLinks = document.querySelectorAll('.social-link');
+
+            // Add ripple effect to each link
+            socialLinks.forEach(link => {
+                // Remove any existing event listeners to prevent duplicates
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+
+                // Add click event for ripple effect
+                newLink.addEventListener('click', function (e) {
+                    // Create ripple element
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('link-ripple');
+
+                    // Style the ripple
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.width = '100%';
+                    ripple.style.height = '100%';
+                    ripple.style.opacity = '0.6';
+
+                    // Set position to relative if not already
+                    if (getComputedStyle(this).position !== 'relative') {
+                        this.style.position = 'relative';
+                        this.style.overflow = 'hidden';
+                    }
+
+                    // Add ripple to the link
+                    this.appendChild(ripple);
+
+                    // Animate the ripple
+                    const animation = ripple.animate([
+                        { transform: 'scale(0)', opacity: 0.6 },
+                        { transform: 'scale(4)', opacity: 0 }
+                    ], {
+                        duration: 600,
+                        easing: 'ease-out'
+                    });
+
+                    // Remove ripple after animation
+                    animation.onfinish = () => ripple.remove();
+                });
+
+                // Add GSAP hover animation if GSAP is available
+                if (window.gsap) {
+                    newLink.addEventListener('mouseenter', () => {
+                        gsap.to(newLink, {
+                            duration: 0.3,
+                            y: -3,
+                            ease: "power2.out"
+                        });
+                    });
+
+                    newLink.addEventListener('mouseleave', () => {
+                        gsap.to(newLink, {
+                            duration: 0.3,
+                            y: 0,
+                            ease: "power2.in"
+                        });
+                    });
+                }
+            });
+        }
+
+        // Initialize when document is ready
+        document.addEventListener('DOMContentLoaded', enhanceSocialLinks);
+
+        // Also initialize for cases where the document is already loaded
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            enhanceSocialLinks();
+        }
     </script>
 </body>
 

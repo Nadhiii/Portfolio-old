@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Parse the URL path
+    const path = window.location.pathname;
+    
+    // Remove trailing slash if it exists (except for root path)
+    const cleanPath = path !== '/' && path.endsWith('/') 
+      ? path.slice(0, -1) 
+      : path;
+    
+    // Try to determine the correct HTML file to redirect to
+    let redirectTo = null;
+    
+    if (cleanPath === '/' || cleanPath === '') {
+      // Homepage request
+      redirectTo = '/index.html';
+    } else {
+      // Check for specific paths or use the path + .html
+      const pathMap = {
+        '/pluto': '/pluto.html',
+      };
+      
+      redirectTo = pathMap[cleanPath] || `${cleanPath}.html`;
+    }
+    
+    // Check if the file exists by making a HEAD request
+    fetch(redirectTo, { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          // If file exists, load it
+          window.location.replace(redirectTo);
+        } else {
+          // If file doesn't exist, show 404 content
+          document.body.innerHTML = `
+            <div style="text-align: center; padding: 50px;">
+              <h1>Page Not Found</h1>
+              <p>The page you're looking for doesn't exist.</p>
+              <p><a href="/">Return to Homepage</a></p>
+            </div>
+          `;
+        }
+      })
+      .catch(error => {
+        // Handle errors
+        console.error('Error checking page existence:', error);
+        window.location.replace('/');
+      });
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

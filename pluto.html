@@ -1,3 +1,4 @@
+permalink: /pluto/
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +17,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pluto | Mahanadi Parisara</title>
+    <title>Pluto | Mahanadhi Parisara</title>
     <style>
         :root {
             --text-color: #333;
@@ -46,7 +47,7 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
         }
 
         ::-webkit-scrollbar-thumb {
@@ -55,7 +56,7 @@
         }
 
         .dark-mode::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         /* Text Selection Style */
@@ -234,6 +235,7 @@
                 transform: scale(0, 0);
                 opacity: 0.5;
             }
+
             100% {
                 transform: scale(100, 100);
                 opacity: 0;
@@ -332,7 +334,8 @@
             top: 0px;
         }
 
-        .mobile-menu-toggle span:nth-child(2), .mobile-menu-toggle span:nth-child(3) {
+        .mobile-menu-toggle span:nth-child(2),
+        .mobile-menu-toggle span:nth-child(3) {
             top: 10px;
         }
 
@@ -365,7 +368,7 @@
             .mobile-menu-toggle {
                 display: block;
             }
-            
+
             .nav-menu {
                 position: fixed;
                 top: 0;
@@ -377,18 +380,18 @@
                 z-index: 2000;
                 flex-direction: column;
                 align-items: flex-start;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 transition: right 0.3s ease;
             }
-            
+
             .nav-menu.open {
                 right: 0;
             }
-            
+
             .nav-menu li {
                 margin: 15px 0;
             }
-            
+
             .dark-mode .nav-menu {
                 background: var(--card-bg);
             }
@@ -459,23 +462,19 @@
             width: 100%;
             height: 100vh;
             z-index: -1;
-            background: linear-gradient(
-                45deg,
-                rgba(0, 102, 204, 0.03),
-                rgba(0, 102, 204, 0),
-                rgba(0, 102, 204, 0.05)
-            );
+            background: linear-gradient(45deg,
+                    rgba(0, 102, 204, 0.03),
+                    rgba(0, 102, 204, 0),
+                    rgba(0, 102, 204, 0.05));
             background-size: 400% 400%;
             animation: gradientAnimation 15s ease infinite;
         }
 
         .dark-mode .gradient-bg {
-            background: linear-gradient(
-                45deg,
-                rgba(107, 167, 224, 0.03),
-                rgba(107, 167, 224, 0),
-                rgba(107, 167, 224, 0.05)
-            );
+            background: linear-gradient(45deg,
+                    rgba(107, 167, 224, 0.03),
+                    rgba(107, 167, 224, 0),
+                    rgba(107, 167, 224, 0.05));
             background-size: 400% 400%;
         }
 
@@ -483,9 +482,11 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -539,15 +540,19 @@
             0% {
                 transform: translate(0, 0) rotate(0deg);
             }
+
             25% {
                 transform: translate(100px, 100px) rotate(90deg);
             }
+
             50% {
                 transform: translate(0, 200px) rotate(180deg);
             }
+
             75% {
                 transform: translate(-100px, 100px) rotate(270deg);
             }
+
             100% {
                 transform: translate(0, 0) rotate(360deg);
             }
@@ -558,7 +563,7 @@
             .content {
                 padding: 0 4%;
             }
-            
+
             .card {
                 padding: 1.5rem;
             }
@@ -566,7 +571,8 @@
 
         /* FIX 1: Dark Mode Nav */
         .dark-mode nav {
-            background-color: #1e1e1e; /* Matching your dark mode card color */
+            background-color: #1e1e1e;
+            /* Matching your dark mode card color */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
@@ -575,22 +581,29 @@
         }
 
         .dark-mode .nav-logo a {
-            color: var(--accent-color); /* Keep accent color for logo */
+            color: var(--accent-color);
+            /* Keep accent color for logo */
         }
 
         /* FIX 2: Smoother Dark Mode Colors */
         .dark-mode {
-            --text-color: #e0e0e0; /* Slightly less harsh than pure white */
-            --bg-color: #121212; /* Keep your dark background */
-            --accent-color: #6ba7e0; /* A softer blue */
-            --secondary-text: #b0b0b0; /* For secondary text elements */
-            --card-bg: #1e1e1e; /* Card background color */
-            --hover-bg: #2a2a2a; /* Hover state background */
+            --text-color: #e0e0e0;
+            /* Slightly less harsh than pure white */
+            --bg-color: #121212;
+            /* Keep your dark background */
+            --accent-color: #6ba7e0;
+            /* A softer blue */
+            --secondary-text: #b0b0b0;
+            /* For secondary text elements */
+            --card-bg: #1e1e1e;
+            /* Card background color */
+            --hover-bg: #2a2a2a;
+            /* Hover state background */
         }
 
-        .dark-mode p, 
-        .dark-mode li, 
-        .dark-mode h3, 
+        .dark-mode p,
+        .dark-mode li,
+        .dark-mode h3,
         .dark-mode .experience-item {
             color: var(--text-color);
         }
@@ -610,7 +623,20 @@
         }
 
         /* Smoother transitions between light/dark mode */
-        body, nav, .card, .skill-pill, .review-card, a, div, p, h1, h2, h3, h4, h5, h6 {
+        body,
+        nav,
+        .card,
+        .skill-pill,
+        .review-card,
+        a,
+        div,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -653,12 +679,12 @@
             z-index: 9999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
-        
+
         .page-loader.loaded {
             opacity: 0;
             visibility: hidden;
         }
-        
+
         .loader-spinner {
             width: 50px;
             height: 50px;
@@ -667,13 +693,13 @@
             border-radius: 50%;
             animation: spin 1s infinite linear;
         }
-        
+
         @keyframes spin {
             to {
                 transform: rotate(360deg);
             }
         }
-        
+
         .dark-mode .page-loader {
             background: var(--bg-color);
         }
@@ -699,17 +725,17 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             z-index: 999;
         }
-        
+
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .back-to-top:hover {
             transform: translateY(-5px);
             background: #0055aa;
         }
-        
+
         @media (max-width: 480px) {
             .back-to-top {
                 bottom: 20px;
@@ -730,7 +756,7 @@
             z-index: 9999;
             transition: width 0.1s;
         }
-        
+
         .dark-mode .scroll-progress-bar {
             background-color: var(--accent-color);
         }
@@ -740,17 +766,17 @@
             margin: 2rem 0;
             text-align: center;
         }
-        
+
         .social-sharing h3 {
             margin-bottom: 1rem;
         }
-        
+
         .share-buttons {
             display: flex;
             justify-content: center;
             gap: 1rem;
         }
-        
+
         .share-button {
             display: flex;
             align-items: center;
@@ -762,29 +788,159 @@
             color: #333;
             transition: all 0.3s ease;
         }
-        
+
         .share-button:hover {
             transform: translateY(-3px);
         }
-        
+
         .share-button.twitter:hover {
             background: #1DA1F2;
             color: white;
         }
-        
+
         .share-button.linkedin:hover {
             background: #0077B5;
             color: white;
         }
-        
+
         .share-button.facebook:hover {
             background: #4267B2;
             color: white;
         }
-        
+
         .dark-mode .share-button {
             background: #333;
             color: #f0f0f0;
+        }
+
+        /* Better theme switcher positioning */
+        @media (max-width: 768px) {
+            .theme-toggle {
+                /* Move to bottom left instead of top right on mobile */
+                top: auto;
+                bottom: 20px;
+                left: 20px;
+                right: auto;
+                z-index: 1001;
+                /* Ensure it's above other elements */
+            }
+
+            /* Fix navigation spacing */
+            .nav-logo a {
+                font-size: 1.2rem;
+                /* Smaller logo text on mobile */
+            }
+
+            /* Better spacing for icons in navigation */
+            .nav-menu {
+                gap: 15px;
+            }
+        }
+
+        /* Better padding on mobile */
+        @media (max-width: 480px) {
+            .content {
+                padding: 0 15px;
+                /* Slightly more breathing room */
+            }
+
+            .card {
+                padding: 1.2rem;
+                /* Smaller card padding */
+            }
+
+            /* Smaller gap between skill pills */
+            .skills-container {
+                gap: 0.5rem;
+            }
+
+            .skill-pill {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            /* Fix intro animation container for smaller screens */
+            .intro-container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Prevent horizontal overflow on the entire page */
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* Make sure no content creates horizontal scrolling */
+        .content,
+        header,
+        section,
+        .card,
+        .feature-list,
+        .section-title {
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Water Ripple Theme Transition Effect */
+
+        /* Theme Transition Container */
+        .theme-transition-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+            overflow: hidden;
+        }
+
+        /* Theme Ripple Elements */
+        .theme-ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            opacity: 0.8;
+            background-color: var(--ripple-color, #121212);
+            will-change: transform, opacity;
+        }
+
+        /* Dark mode theme ripple color */
+        .theme-transition-dark .theme-ripple {
+            --ripple-color: #121212;
+            /* Dark mode background color */
+        }
+
+        /* Light mode theme ripple color */
+        .theme-transition-light .theme-ripple {
+            --ripple-color: #f5f5f5;
+            /* Light mode background color */
+        }
+
+        /* Add transition class for smoother body color changes */
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Ensure other elements transition smoothly */
+        nav,
+        .card,
+        .section-title,
+        p,
+        h1,
+        h2,
+        h3,
+        footer,
+        .theme-toggle,
+        .nav-menu,
+        .skill-pill,
+        .review-card,
+        .feature-list li,
+        .social-link,
+        .download-button {
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
     </style>
 </head>
@@ -805,17 +961,18 @@
 
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress-bar"></div>
-    
+
     <!-- Theme toggle button -->
     <button class="theme-toggle" id="themeToggle">
         🌙
     </button>
 
     <nav>
-        <div class="nav-logo"><a href="index.html">MP</a></div>
+        <div class="nav-logo"><a href="/index/">MP</a></div>
         <ul class="nav-menu">
             <li>
-                <a href="https://drive.google.com/drive/folders/1xpOz7nBaKJ3IBFPERQ8IAU_lBi5PXdL9?usp=sharing" class="nav-download-btn" target="_blank">
+                <a href="https://drive.google.com/drive/folders/1xpOz7nBaKJ3IBFPERQ8IAU_lBi5PXdL9?usp=sharing"
+                    class="nav-download-btn" target="_blank">
                     <span class="emoji">📱</span> Download APK
                 </a>
             </li>
@@ -947,28 +1104,16 @@
 
         <!-- Social Sharing -->
         <div class="social-sharing">
-            <h3>Share This App</h3>
+            <h3>Let's connect</h3>
             <div class="share-buttons">
-                <!-- Twitter/X -->
-                <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com/pluto&text=Check out Pluto! A privacy-focused finance app that actually works." target="_blank" class="share-button twitter">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                    </svg>
-                </a>
-                
                 <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://yourwebsite.com/pluto&title=Pluto: Finance App&summary=A privacy-focused finance app that actually works." target="_blank" class="share-button linkedin">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="https://linkedin.com/in/mahanadhi/" target="_blank"
+                    title="Connect on LinkedIn" class="share-button linkedin">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                </a>
-                
-                <!-- Facebook -->
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com/pluto" target="_blank" class="share-button facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                     </svg>
                 </a>
             </div>
@@ -976,13 +1121,14 @@
 
         <!-- Footer -->
         <footer>
-            <p>© 2025 Mahanadi Parisara. All rights reserved.</p>
+            <p>© 2025 Mahanadhi Parisara. All rights reserved.</p>
         </footer>
     </div>
 
     <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="18 15 12 9 6 15"></polyline>
         </svg>
     </button>
@@ -1006,7 +1152,7 @@
         // Mobile menu toggle
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navMenu = document.querySelector('.nav-menu');
-        
+
         if (mobileMenuToggle && navMenu) {
             mobileMenuToggle.addEventListener('click', () => {
                 mobileMenuToggle.classList.toggle('open');
@@ -1014,11 +1160,11 @@
                 // Prevent scrolling when menu is open
                 document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
             });
-            
+
             // Close menu when clicking outside
             document.addEventListener('click', (event) => {
-                if (navMenu.classList.contains('open') && 
-                    !navMenu.contains(event.target) && 
+                if (navMenu.classList.contains('open') &&
+                    !navMenu.contains(event.target) &&
                     !mobileMenuToggle.contains(event.target)) {
                     navMenu.classList.remove('open');
                     mobileMenuToggle.classList.remove('open');
@@ -1029,7 +1175,7 @@
 
         // Back to top button
         const backToTopBtn = document.getElementById('backToTop');
-        
+
         if (backToTopBtn) {
             // Show button after scrolling down 300px
             window.addEventListener('scroll', () => {
@@ -1039,7 +1185,7 @@
                     backToTopBtn.classList.remove('visible');
                 }
             });
-            
+
             // Scroll to top on click
             backToTopBtn.addEventListener('click', () => {
                 window.scrollTo({
@@ -1057,18 +1203,141 @@
             document.querySelector('.scroll-progress-bar').style.width = scrolled + "%";
         });
 
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
+        // Water Ripple Theme Transition JavaScript
 
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        /**
+         * Creates a water-like ripple animation for theme switching
+         */
+        function setupWaterRippleThemeAnimation() {
+            const themeToggle = document.getElementById('themeToggle');
+
+            // Create transition container if it doesn't exist
+            if (!document.querySelector('.theme-transition-container')) {
+                const container = document.createElement('div');
+                container.className = 'theme-transition-container';
+                document.body.appendChild(container);
+            }
+
+            const container = document.querySelector('.theme-transition-container');
+
+            // Remove existing event listeners to prevent duplicates
+            const newThemeToggle = themeToggle.cloneNode(true);
+            themeToggle.parentNode.replaceChild(newThemeToggle, themeToggle);
+
+            // Add new event listener to the cloned button
+            newThemeToggle.addEventListener('click', function (e) {
+                // Determine if we're switching to dark or light mode
+                const isDarkMode = !document.body.classList.contains('dark-mode');
+
+                // Clear previous ripples
+                container.innerHTML = '';
+
+                // Set container class for proper coloring
+                container.className = `theme-transition-container theme-transition-${isDarkMode ? 'dark' : 'light'}`;
+
+                // Get the button position for ripple origin
+                const rect = newThemeToggle.getBoundingClientRect();
+                const originX = rect.left + rect.width / 2;
+                const originY = rect.top + rect.height / 2;
+
+                // Create multiple ripples with varying sizes and speeds
+                createWaterRipples(container, originX, originY, 7, isDarkMode);
+
+                // After animation has proceeded far enough, change the theme
+                setTimeout(() => {
+                    document.body.classList.toggle('dark-mode');
+                    newThemeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+                }, 300);
+            });
+        }
+
+        /**
+         * Creates multiple water-like ripples
+         */
+        function createWaterRipples(container, originX, originY, count, isDarkMode) {
+            // Calculate screen dimensions for proper scaling
+            const maxDimension = Math.max(
+                window.innerWidth,
+                window.innerHeight,
+                // Calculate distance to corners
+                Math.sqrt(originX * originX + originY * originY),
+                Math.sqrt((window.innerWidth - originX) * (window.innerWidth - originX) + originY * originY),
+                Math.sqrt(originX * originX + (window.innerHeight - originY) * (window.innerHeight - originY)),
+                Math.sqrt((window.innerWidth - originX) * (window.innerWidth - originX) + (window.innerHeight - originY) * (window.innerHeight - originY))
+            );
+
+            // Create multiple ripples
+            for (let i = 0; i < count; i++) {
+                const ripple = document.createElement('div');
+                ripple.className = 'theme-ripple';
+
+                // Set ripple position
+                ripple.style.left = originX + 'px';
+                ripple.style.top = originY + 'px';
+
+                // Randomize size slightly for organic feel
+                const baseSize = maxDimension * 2.2; // Make sure ripples are large enough to cover screen
+                const variation = 0.1; // 10% size variation
+                const size = baseSize * (1 - variation / 2 + Math.random() * variation);
+
+                // Initial size needs to be a small value
+                const initialSize = 10 + Math.random() * 20;
+                ripple.style.width = initialSize + 'px';
+                ripple.style.height = initialSize + 'px';
+
+                // Center the ripple on its position
+                ripple.style.marginLeft = -(initialSize / 2) + 'px';
+                ripple.style.marginTop = -(initialSize / 2) + 'px';
+
+                // Add ripple to container
+                container.appendChild(ripple);
+
+                // Animate the ripple with varying speeds
+                const delay = i * 60; // Stagger the ripples
+                const duration = 1200 + Math.random() * 200; // Slightly randomize duration
+
+                // Start the animation after a small delay
+                setTimeout(() => {
+                    ripple.style.transition = `transform ${duration}ms cubic-bezier(0.1, 0.4, 0.3, 1), opacity ${duration * 0.8}ms ease-out`;
+
+                    // Scale to cover screen
+                    const scaleFactor = size / initialSize;
+                    ripple.style.transform = `scale(${scaleFactor})`;
+
+                    // Fade out towards the end of animation
+                    setTimeout(() => {
+                        ripple.style.opacity = '0';
+                    }, duration * 0.7);
+
+                    // Remove ripple after animation
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, duration + 100);
+                }, delay);
+            }
+        }
+
+        // Initialize the theme animation when the document is ready
+        document.addEventListener('DOMContentLoaded', setupWaterRippleThemeAnimation);
+
+        // If document is already loaded, initialize immediately
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            setupWaterRippleThemeAnimation();
+        }
+
+        // Re-initialize on window resize
+        window.addEventListener('resize', () => {
+            // Debounce the resize event
+            if (window.themeResizeTimer) {
+                clearTimeout(window.themeResizeTimer);
+            }
+            window.themeResizeTimer = setTimeout(setupWaterRippleThemeAnimation, 250);
         });
 
         // Enhanced Card Hover Effects
         function addCardHoverEffects() {
             const cards = document.querySelectorAll('.card');
-            
+
             cards.forEach(card => {
                 card.addEventListener('mouseenter', () => {
                     gsap.to(card, {
@@ -1078,7 +1347,7 @@
                         ease: "power2.out"
                     });
                 });
-                
+
                 card.addEventListener('mouseleave', () => {
                     gsap.to(card, {
                         duration: 0.3,
@@ -1105,12 +1374,12 @@
                     ease: "none"
                 });
             });
-            
+
             // Parallax for cards with different speeds
             gsap.utils.toArray('.card').forEach((card, i) => {
                 // Alternate between positive and negative y movement
                 const yDirection = i % 2 === 0 ? 20 : -20;
-                
+
                 gsap.to(card, {
                     scrollTrigger: {
                         trigger: card,
@@ -1128,14 +1397,14 @@
         document.querySelectorAll('a').forEach(link => {
             // Only apply to internal links
             if (link.hostname === window.location.hostname && !link.hasAttribute('download') && !link.hasAttribute('target')) {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-                    
+
                     // Skip if it's a hash link
                     if (href.startsWith('#')) return;
-                    
+
                     e.preventDefault();
-                    
+
                     // Fade out current page
                     gsap.to('.content', {
                         duration: 0.4,
@@ -1253,10 +1522,10 @@
                 y: 20,
                 duration: 0.8
             });
-            
+
             // Add card hover effects
             addCardHoverEffects();
-            
+
             // Enable parallax effects (optional)
             initParallaxEffects();
         }
@@ -1264,7 +1533,7 @@
         // Start animations when page loads
         window.addEventListener('load', () => {
             initAnimations();
-            
+
             // Add entrance animation for content when coming from other pages
             gsap.from('.content', {
                 duration: 0.8,
